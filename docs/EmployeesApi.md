@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 ## employees_get
 
-> <Employee> employees_get(id, x_account_id, opts)
+> <EmployeeResult> employees_get(id, x_account_id, opts)
 
 
 
@@ -49,7 +49,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Employee>, Integer, Hash)> employees_get_with_http_info(id, x_account_id, opts)
+> <Array(<EmployeeResult>, Integer, Hash)> employees_get_with_http_info(id, x_account_id, opts)
 
 ```ruby
 begin
@@ -57,7 +57,7 @@ begin
   data, status_code, headers = api_instance.employees_get_with_http_info(id, x_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Employee>
+  p data # => <EmployeeResult>
 rescue StackOneHrisClient::ApiError => e
   puts "Error when calling EmployeesApi->employees_get_with_http_info: #{e}"
 end
@@ -77,7 +77,7 @@ end
 
 ### Return type
 
-[**Employee**](Employee.md)
+[**EmployeeResult**](EmployeeResult.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ end
 
 ## employees_list
 
-> <Array<Employee>> employees_list(x_account_id, opts)
+> <EmployeesPaginated> employees_list(x_account_id, opts)
 
 
 
@@ -129,7 +129,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<Employee>>, Integer, Hash)> employees_list_with_http_info(x_account_id, opts)
+> <Array(<EmployeesPaginated>, Integer, Hash)> employees_list_with_http_info(x_account_id, opts)
 
 ```ruby
 begin
@@ -137,7 +137,7 @@ begin
   data, status_code, headers = api_instance.employees_list_with_http_info(x_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<Employee>>
+  p data # => <EmployeesPaginated>
 rescue StackOneHrisClient::ApiError => e
   puts "Error when calling EmployeesApi->employees_list_with_http_info: #{e}"
 end
@@ -156,7 +156,7 @@ end
 
 ### Return type
 
-[**Array&lt;Employee&gt;**](Employee.md)
+[**EmployeesPaginated**](EmployeesPaginated.md)
 
 ### Authorization
 

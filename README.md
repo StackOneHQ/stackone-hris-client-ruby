@@ -99,6 +99,8 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [StackOneHrisClient::Employee](docs/Employee.md)
+ - [StackOneHrisClient::EmployeeResult](docs/EmployeeResult.md)
+ - [StackOneHrisClient::EmployeesPaginated](docs/EmployeesPaginated.md)
  - [StackOneHrisClient::ProxyRequestBody](docs/ProxyRequestBody.md)
 
 

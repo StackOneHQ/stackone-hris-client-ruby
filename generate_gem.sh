@@ -1,1 +1,1 @@
-openapi-generator generate -c gem-config.yml --minimal-update
+openapi-generator generate -c gem-config.yml

@@ -28,7 +28,7 @@ module StackOneHrisClient
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
     # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
     # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
-    # @return [Employee]
+    # @return [EmployeeResult]
     def employees_get(id, x_account_id, opts = {})
       data, _status_code, _headers = employees_get_with_http_info(id, x_account_id, opts)
       data
@@ -43,7 +43,7 @@ module StackOneHrisClient
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
     # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
     # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
-    # @return [Array<(Employee, Integer, Hash)>] Employee data, response status code and response headers
+    # @return [Array<(EmployeeResult, Integer, Hash)>] EmployeeResult data, response status code and response headers
     def employees_get_with_http_info(id, x_account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeesApi.employees_get ...'
@@ -80,7 +80,7 @@ module StackOneHrisClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Employee'
+      return_type = opts[:debug_return_type] || 'EmployeeResult'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['basic']
@@ -110,7 +110,7 @@ module StackOneHrisClient
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
     # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
     # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
-    # @return [Array<Employee>]
+    # @return [EmployeesPaginated]
     def employees_list(x_account_id, opts = {})
       data, _status_code, _headers = employees_list_with_http_info(x_account_id, opts)
       data
@@ -124,7 +124,7 @@ module StackOneHrisClient
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
     # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
     # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
-    # @return [Array<(Array<Employee>, Integer, Hash)>] Array<Employee> data, response status code and response headers
+    # @return [Array<(EmployeesPaginated, Integer, Hash)>] EmployeesPaginated data, response status code and response headers
     def employees_list_with_http_info(x_account_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmployeesApi.employees_list ...'
@@ -157,7 +157,7 @@ module StackOneHrisClient
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Array<Employee>'
+      return_type = opts[:debug_return_type] || 'EmployeesPaginated'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['basic']
