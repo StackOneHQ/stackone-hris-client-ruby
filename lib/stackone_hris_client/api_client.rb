@@ -239,7 +239,7 @@ module StackOneHrisClient
         end
       end
 
-      convert_to_type data, return_type
+      convert_to_type data[:data], return_type
     end
 
     # Convert data to the given return type.
