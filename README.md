@@ -59,8 +59,7 @@ require 'stackone_hris_client'
 # Setup authorization
 StackOneHrisClient.configure do |config|
   # Configure HTTP basic authorization: basic
-  config.username = 'YOUR_USERNAME'
-  config.password = 'YOUR_PASSWORD'
+  config.api_key_token = 'YOUR API KEY'
 end
 
 api_instance = StackOneHrisClient::EmployeesApi.new

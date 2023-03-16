@@ -23,8 +23,7 @@ require 'stackone_hris_client'
 # setup authorization
 StackOneHrisClient.configure do |config|
   # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
+  config.api_key_token = 'YOUR API KEY'
 end
 
 api_instance = StackOneHrisClient::UnifiedApi.new
@@ -104,8 +103,7 @@ require 'stackone_hris_client'
 # setup authorization
 StackOneHrisClient.configure do |config|
   # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
+  config.api_key_token = 'YOUR API KEY'
 end
 
 api_instance = StackOneHrisClient::UnifiedApi.new
@@ -187,8 +185,7 @@ require 'stackone_hris_client'
 # setup authorization
 StackOneHrisClient.configure do |config|
   # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
+  config.api_key_token = 'YOUR API KEY'
 end
 
 api_instance = StackOneHrisClient::UnifiedApi.new

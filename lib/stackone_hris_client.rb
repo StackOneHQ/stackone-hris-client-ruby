@@ -28,8 +28,7 @@ module StackOneHrisClient
   class << self
     # Customize default settings for the SDK using block.
     #   StackOneHrisClient.configure do |config|
-    #     config.username = "xxx"
-    #     config.password = "xxx"
+    #     config.api_key_token = "xxx"
     #   end
     # If no block given, return the default Configuration object.
     def configure

@@ -59,6 +59,11 @@ module StackOneHrisClient
     # @return [String]
     attr_accessor :password
 
+    # Defines the API Key Token used with API Key Token authentication.
+    #
+    # @return [String]
+    attr_accessor :api_key_token
+
     # Defines the access token (Bearer) used with OAuth2.
     attr_accessor :access_token
 
@@ -138,21 +143,27 @@ module StackOneHrisClient
     # https://github.com/typhoeus/ethon/blob/master/lib/ethon/easy/queryable.rb#L96
     attr_accessor :params_encoding
 
-
     attr_accessor :inject_format
 
     attr_accessor :force_ending_format
 
+    # Defines the region slug used to choose the API base url.
+    # Default to eu1.
+    #
+    # @return [String]
+    attr_accessor :region_slug
+
     def initialize
-      @scheme = 'http'
-      @host = 'localhost'
+      @scheme = 'https'
+      @host = 'stackone.com'
       @base_path = ''
-      @server_index = 0
+      @server_index = nil
       @server_operation_index = {}
       @server_variables = {}
       @server_operation_variables = {}
       @api_key = {}
       @api_key_prefix = {}
+      @password = ''
       @client_side_validation = true
       @verify_ssl = true
       @verify_ssl_host = true
@@ -163,6 +174,7 @@ module StackOneHrisClient
       @debugging = false
       @inject_format = false
       @force_ending_format = false
+      @region_slug = 'eu1'
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
 
       yield(self) if block_given?
@@ -193,10 +205,16 @@ module StackOneHrisClient
       @base_path = '' if @base_path == '/'
     end
 
+    def region_slug_subdomain
+      return '' if region_slug.nil? || region_slug.empty?
+
+      "api.#{region_slug}."
+    end
+
     # Returns base URL for specified operation based on server settings
     def base_url(operation = nil)
       index = server_operation_index.fetch(operation, server_index)
-      return "#{scheme}://#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '') if index == nil
+      return "#{scheme}://#{region_slug_subdomain}#{[host, base_path].join('/').gsub(/\/+/, '/')}".sub(/\/+\z/, '') if index == nil
 
       server_url(index, server_operation_variables.fetch(operation, server_variables), operation_server_settings[operation])
     end
@@ -221,7 +239,7 @@ module StackOneHrisClient
 
     # Gets Basic Auth token string
     def basic_auth_token
-      'Basic ' + ["#{username}:#{password}"].pack('m').delete("\r\n")
+      'Basic ' + ["#{api_key_token}:#{password}"].pack('m').delete("\r\n")
     end
 
     # Returns Auth Settings hash for api client.
