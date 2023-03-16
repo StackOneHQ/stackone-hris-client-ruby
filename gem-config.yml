@@ -1,0 +1,14 @@
+generatorName: ruby
+inputSpec: https://api.eu1.stackone.com/documentation-yaml
+additionalProperties:
+  moduleName: "StackOneHrisClient"
+  gemAuthor: "StackOne"
+  gemAuthorEmail: "developer-support@stackone.comm"
+  gemDescription: "StackOne Unified API client for enhanced integrations with HRIS systems"
+  gemHomepage: "https://stackone.com"
+  gemLicense: "MIT"
+  gemName: "stackone_hris_client"
+  gemRequiredRubyVersion: ">= 2.7"
+  gemSummary: "StackOne HRIS client gem"
+  gemVersion: "1.0.0"
+  library: "typhoeus"
