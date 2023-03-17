@@ -91,18 +91,12 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *StackOneHrisClient::EmployeesApi* | [**employees_get**](docs/EmployeesApi.md#employees_get) | **GET** /unified/hris/employees/{id} | 
 *StackOneHrisClient::EmployeesApi* | [**employees_list**](docs/EmployeesApi.md#employees_list) | **GET** /unified/hris/employees | 
-*StackOneHrisClient::UnifiedApi* | [**find_all**](docs/UnifiedApi.md#find_all) | **GET** /unified/{service}/{resource} | 
-*StackOneHrisClient::UnifiedApi* | [**find_one**](docs/UnifiedApi.md#find_one) | **GET** /unified/{service}/{resource}/{id} | 
-*StackOneHrisClient::UnifiedApi* | [**proxy**](docs/UnifiedApi.md#proxy) | **POST** /unified/proxy | 
-
 
 ## Documentation for Models
 
  - [StackOneHrisClient::Employee](docs/Employee.md)
  - [StackOneHrisClient::EmployeeResult](docs/EmployeeResult.md)
  - [StackOneHrisClient::EmployeesPaginated](docs/EmployeesPaginated.md)
- - [StackOneHrisClient::ProxyRequestBody](docs/ProxyRequestBody.md)
-
 
 ## Documentation for Authorization
 

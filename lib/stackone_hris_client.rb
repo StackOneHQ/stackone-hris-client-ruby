@@ -20,11 +20,9 @@ require 'stackone_hris_client/configuration'
 require 'stackone_hris_client/models/employee'
 require 'stackone_hris_client/models/employee_result'
 require 'stackone_hris_client/models/employees_paginated'
-require 'stackone_hris_client/models/proxy_request_body'
 
 # APIs
 require 'stackone_hris_client/api/employees_api'
-require 'stackone_hris_client/api/unified_api'
 
 module StackOneHrisClient
   class << self
