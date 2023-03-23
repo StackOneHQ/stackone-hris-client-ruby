@@ -28,6 +28,7 @@ module StackOneHrisClient
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
     # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
     # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
+    # @option opts [String] :sync_token The sync token to select the only updated results
     # @return [EmployeeResult]
     def employees_get(id, x_account_id, opts = {})
       data, _status_code, _headers = employees_get_with_http_info(id, x_account_id, opts)
@@ -43,6 +44,7 @@ module StackOneHrisClient
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
     # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
     # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
+    # @option opts [String] :sync_token The sync token to select the only updated results
     # @return [Array<(EmployeeResult, Integer, Hash)>] EmployeeResult data, response status code and response headers
     def employees_get_with_http_info(id, x_account_id, opts = {})
       if @api_client.config.debugging
@@ -66,6 +68,7 @@ module StackOneHrisClient
       query_params[:'raw'] = opts[:'raw'] if !opts[:'raw'].nil?
       query_params[:'fields'] = @api_client.build_collection_param(opts[:'fields'], :multi) if !opts[:'fields'].nil?
       query_params[:'expand'] = @api_client.build_collection_param(opts[:'expand'], :multi) if !opts[:'expand'].nil?
+      query_params[:'sync_token'] = opts[:'sync_token'] if !opts[:'sync_token'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -110,6 +113,7 @@ module StackOneHrisClient
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
     # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
     # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
+    # @option opts [String] :sync_token The sync token to select the only updated results
     # @return [EmployeesPaginated]
     def employees_list(x_account_id, opts = {})
       data, _status_code, _headers = employees_list_with_http_info(x_account_id, opts)
@@ -124,6 +128,7 @@ module StackOneHrisClient
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
     # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
     # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
+    # @option opts [String] :sync_token The sync token to select the only updated results
     # @return [Array<(EmployeesPaginated, Integer, Hash)>] EmployeesPaginated data, response status code and response headers
     def employees_list_with_http_info(x_account_id, opts = {})
       if @api_client.config.debugging
@@ -143,6 +148,7 @@ module StackOneHrisClient
       query_params[:'raw'] = opts[:'raw'] if !opts[:'raw'].nil?
       query_params[:'fields'] = @api_client.build_collection_param(opts[:'fields'], :multi) if !opts[:'fields'].nil?
       query_params[:'expand'] = @api_client.build_collection_param(opts[:'expand'], :multi) if !opts[:'expand'].nil?
+      query_params[:'sync_token'] = opts[:'sync_token'] if !opts[:'sync_token'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

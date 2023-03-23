@@ -33,7 +33,8 @@ opts = {
   page_size: 'page_size_example', # String | The number of results per page
   raw: true, # Boolean | Indicates that the raw request result is returned
   fields: ['inner_example'], # Array<String> | The list of fields to return in the response (if empty, all fields are returned)
-  expand: ['inner_example'] # Array<String> | The list of fields that will be expanded in the response
+  expand: ['inner_example'], # Array<String> | The list of fields that will be expanded in the response
+  sync_token: 'sync_token_example' # String | The sync token to select the only updated results
 }
 
 begin
@@ -74,6 +75,7 @@ end
 | **raw** | **Boolean** | Indicates that the raw request result is returned | [optional][default to false] |
 | **fields** | [**Array&lt;String&gt;**](String.md) | The list of fields to return in the response (if empty, all fields are returned) | [optional] |
 | **expand** | [**Array&lt;String&gt;**](String.md) | The list of fields that will be expanded in the response | [optional] |
+| **sync_token** | **String** | The sync token to select the only updated results | [optional] |
 
 ### Return type
 
@@ -113,7 +115,8 @@ opts = {
   page_size: 'page_size_example', # String | The number of results per page
   raw: true, # Boolean | Indicates that the raw request result is returned
   fields: ['inner_example'], # Array<String> | The list of fields to return in the response (if empty, all fields are returned)
-  expand: ['inner_example'] # Array<String> | The list of fields that will be expanded in the response
+  expand: ['inner_example'], # Array<String> | The list of fields that will be expanded in the response
+  sync_token: 'sync_token_example' # String | The sync token to select the only updated results
 }
 
 begin
@@ -153,6 +156,7 @@ end
 | **raw** | **Boolean** | Indicates that the raw request result is returned | [optional][default to false] |
 | **fields** | [**Array&lt;String&gt;**](String.md) | The list of fields to return in the response (if empty, all fields are returned) | [optional] |
 | **expand** | [**Array&lt;String&gt;**](String.md) | The list of fields that will be expanded in the response | [optional] |
+| **sync_token** | **String** | The sync token to select the only updated results | [optional] |
 
 ### Return type
 

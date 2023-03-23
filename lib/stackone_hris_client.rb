@@ -17,11 +17,18 @@ require 'stackone_hris_client/version'
 require 'stackone_hris_client/configuration'
 
 # Models
+require 'stackone_hris_client/models/account'
+require 'stackone_hris_client/models/connect_session'
+require 'stackone_hris_client/models/connect_session_authenticate'
+require 'stackone_hris_client/models/connect_session_create'
+require 'stackone_hris_client/models/connect_session_token'
 require 'stackone_hris_client/models/employee'
 require 'stackone_hris_client/models/employee_result'
 require 'stackone_hris_client/models/employees_paginated'
 
 # APIs
+require 'stackone_hris_client/api/accounts_api'
+require 'stackone_hris_client/api/connect_sessions_api'
 require 'stackone_hris_client/api/employees_api'
 
 module StackOneHrisClient
