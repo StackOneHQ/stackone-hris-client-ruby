@@ -147,12 +147,6 @@ module StackOneHrisClient
 
     attr_accessor :force_ending_format
 
-    # Defines the region slug used to choose the API base url.
-    # Default to eu1.
-    #
-    # @return [String]
-    attr_accessor :region_slug
-
     def initialize
       @scheme = 'https'
       @host = 'stackone.com'
@@ -174,7 +168,6 @@ module StackOneHrisClient
       @debugging = false
       @inject_format = false
       @force_ending_format = false
-      @region_slug = 'eu1'
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
 
       yield(self) if block_given?
@@ -205,8 +198,16 @@ module StackOneHrisClient
       @base_path = '' if @base_path == '/'
     end
 
+    def extract_region_slug_from_api_key_token
+      return nil if api_key_token.nil? || api_key_token.empty?
+
+      api_key_token.split('.')[1]
+    end
+
     def region_slug_subdomain
-      return '' if region_slug.nil? || region_slug.empty?
+      region_slug = extract_region_slug_from_api_key_token
+
+      return '' if region_slug.nil? || region_slug.empty? || region_slug == 'dev'
 
       "api.#{region_slug}."
     end
