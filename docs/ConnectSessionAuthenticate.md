@@ -1,4 +1,4 @@
-# StackOneHrisClient::ConnectSessionAuthenticate
+# StackOneHRIS::ConnectSessionAuthenticate
 
 ## Properties
 
@@ -11,7 +11,7 @@
 ```ruby
 require 'stackone_hris_client'
 
-instance = StackOneHrisClient::ConnectSessionAuthenticate.new(
+instance = StackOneHRIS::ConnectSessionAuthenticate.new(
   token: null
 )
 ```

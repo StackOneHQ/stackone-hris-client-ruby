@@ -1,4 +1,4 @@
-# StackOneHrisClient::ConnectSessionsApi
+# StackOneHRIS::ConnectSessionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,19 +20,20 @@ All URIs are relative to *http://localhost*
 require 'time'
 require 'stackone_hris_client'
 # setup authorization
-StackOneHrisClient.configure do |config|
+StackOneHRIS.configure do |config|
   # Configure HTTP basic authorization: basic
-  config.api_key_token = 'YOUR API KEY'
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
 end
 
-api_instance = StackOneHrisClient::ConnectSessionsApi.new
-connect_session_authenticate = StackOneHrisClient::ConnectSessionAuthenticate.new({token: 'token_example'}) # ConnectSessionAuthenticate | The parameters to authenticate
+api_instance = StackOneHRIS::ConnectSessionsApi.new
+connect_session_authenticate = StackOneHRIS::ConnectSessionAuthenticate.new({token: 'token_example'}) # ConnectSessionAuthenticate | The parameters to authenticate
 
 begin
   # 
   result = api_instance.connect_sessions_authenticate(connect_session_authenticate)
   p result
-rescue StackOneHrisClient::ApiError => e
+rescue StackOneHRIS::ApiError => e
   puts "Error when calling ConnectSessionsApi->connect_sessions_authenticate: #{e}"
 end
 ```
@@ -50,7 +51,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ConnectSession>
-rescue StackOneHrisClient::ApiError => e
+rescue StackOneHRIS::ApiError => e
   puts "Error when calling ConnectSessionsApi->connect_sessions_authenticate_with_http_info: #{e}"
 end
 ```
@@ -87,19 +88,20 @@ end
 require 'time'
 require 'stackone_hris_client'
 # setup authorization
-StackOneHrisClient.configure do |config|
+StackOneHRIS.configure do |config|
   # Configure HTTP basic authorization: basic
-  config.api_key_token = 'YOUR API KEY'
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
 end
 
-api_instance = StackOneHrisClient::ConnectSessionsApi.new
-connect_session_create = StackOneHrisClient::ConnectSessionCreate.new({origin_owner_id: 'origin_owner_id_example', origin_owner_name: 'origin_owner_name_example'}) # ConnectSessionCreate | 
+api_instance = StackOneHRIS::ConnectSessionsApi.new
+connect_session_create = StackOneHRIS::ConnectSessionCreate.new({origin_owner_id: 'origin_owner_id_example', origin_owner_name: 'origin_owner_name_example'}) # ConnectSessionCreate | 
 
 begin
   # 
   result = api_instance.connect_sessions_create(connect_session_create)
   p result
-rescue StackOneHrisClient::ApiError => e
+rescue StackOneHRIS::ApiError => e
   puts "Error when calling ConnectSessionsApi->connect_sessions_create: #{e}"
 end
 ```
@@ -117,7 +119,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ConnectSessionToken>
-rescue StackOneHrisClient::ApiError => e
+rescue StackOneHRIS::ApiError => e
   puts "Error when calling ConnectSessionsApi->connect_sessions_create_with_http_info: #{e}"
 end
 ```

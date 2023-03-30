@@ -1,4 +1,4 @@
-# StackOneHrisClient::EmployeesApi
+# StackOneHRIS::EmployeesApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,12 +20,13 @@ All URIs are relative to *http://localhost*
 require 'time'
 require 'stackone_hris_client'
 # setup authorization
-StackOneHrisClient.configure do |config|
+StackOneHRIS.configure do |config|
   # Configure HTTP basic authorization: basic
-  config.api_key_token = 'YOUR API KEY'
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
 end
 
-api_instance = StackOneHrisClient::EmployeesApi.new
+api_instance = StackOneHRIS::EmployeesApi.new
 id = 'id_example' # String | 
 x_account_id = 'x_account_id_example' # String | The account identifier
 opts = {
@@ -41,7 +42,7 @@ begin
   # 
   result = api_instance.employees_get(id, x_account_id, opts)
   p result
-rescue StackOneHrisClient::ApiError => e
+rescue StackOneHRIS::ApiError => e
   puts "Error when calling EmployeesApi->employees_get: #{e}"
 end
 ```
@@ -59,7 +60,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmployeeResult>
-rescue StackOneHrisClient::ApiError => e
+rescue StackOneHRIS::ApiError => e
   puts "Error when calling EmployeesApi->employees_get_with_http_info: #{e}"
 end
 ```
@@ -103,12 +104,13 @@ end
 require 'time'
 require 'stackone_hris_client'
 # setup authorization
-StackOneHrisClient.configure do |config|
+StackOneHRIS.configure do |config|
   # Configure HTTP basic authorization: basic
-  config.api_key_token = 'YOUR API KEY'
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
 end
 
-api_instance = StackOneHrisClient::EmployeesApi.new
+api_instance = StackOneHRIS::EmployeesApi.new
 x_account_id = 'x_account_id_example' # String | The account identifier
 opts = {
   page: 'page_example', # String | The page number of the results to fetch
@@ -123,7 +125,7 @@ begin
   # 
   result = api_instance.employees_list(x_account_id, opts)
   p result
-rescue StackOneHrisClient::ApiError => e
+rescue StackOneHRIS::ApiError => e
   puts "Error when calling EmployeesApi->employees_list: #{e}"
 end
 ```
@@ -141,7 +143,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmployeesPaginated>
-rescue StackOneHrisClient::ApiError => e
+rescue StackOneHRIS::ApiError => e
   puts "Error when calling EmployeesApi->employees_list_with_http_info: #{e}"
 end
 ```

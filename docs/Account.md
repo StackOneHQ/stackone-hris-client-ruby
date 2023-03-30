@@ -1,4 +1,4 @@
-# StackOneHrisClient::Account
+# StackOneHRIS::Account
 
 ## Properties
 
@@ -18,7 +18,7 @@
 ```ruby
 require 'stackone_hris_client'
 
-instance = StackOneHrisClient::Account.new(
+instance = StackOneHRIS::Account.new(
   id: null,
   provider: null,
   origin_owner_id: null,

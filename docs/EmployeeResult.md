@@ -1,4 +1,4 @@
-# StackOneHrisClient::EmployeeResult
+# StackOneHRIS::EmployeeResult
 
 ## Properties
 
@@ -12,7 +12,7 @@
 ```ruby
 require 'stackone_hris_client'
 
-instance = StackOneHrisClient::EmployeeResult.new(
+instance = StackOneHRIS::EmployeeResult.new(
   data: null,
   raw: null
 )

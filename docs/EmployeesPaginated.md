@@ -1,4 +1,4 @@
-# StackOneHrisClient::EmployeesPaginated
+# StackOneHRIS::EmployeesPaginated
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'stackone_hris_client'
 
-instance = StackOneHrisClient::EmployeesPaginated.new(
+instance = StackOneHRIS::EmployeesPaginated.new(
   next_page: null,
   data: null,
   raw: null
