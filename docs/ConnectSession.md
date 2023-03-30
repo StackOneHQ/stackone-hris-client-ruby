@@ -1,4 +1,4 @@
-# StackOneHrisClient::ConnectSession
+# StackOneHRIS::ConnectSession
 
 ## Properties
 
@@ -19,7 +19,7 @@
 ```ruby
 require 'stackone_hris_client'
 
-instance = StackOneHrisClient::ConnectSession.new(
+instance = StackOneHRIS::ConnectSession.new(
   id: null,
   organization_id: null,
   project_id: null,

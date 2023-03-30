@@ -1,4 +1,4 @@
-# StackOneHrisClient::ConnectSessionCreate
+# StackOneHRIS::ConnectSessionCreate
 
 ## Properties
 
@@ -16,7 +16,7 @@
 ```ruby
 require 'stackone_hris_client'
 
-instance = StackOneHrisClient::ConnectSessionCreate.new(
+instance = StackOneHRIS::ConnectSessionCreate.new(
   categories: [&quot;ats&quot;,&quot;hris&quot;,&quot;crm&quot;],
   provider: null,
   origin_owner_id: null,
