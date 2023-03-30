@@ -46,7 +46,7 @@ require 'stackone_hris_client/api/locations_api'
 module StackOneHRIS
   class << self
     # Customize default settings for the SDK using block.
-    #   StackOneHrisClient.configure do |config|
+    #   StackOneHRIS.configure do |config|
     #     config.api_key_token = "xxx"
     #   end
     # If no block given, return the default Configuration object.

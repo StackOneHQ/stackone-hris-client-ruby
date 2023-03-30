@@ -316,7 +316,5 @@ module StackOneHRIS
         value
       end
     end
-
   end
-
 end
