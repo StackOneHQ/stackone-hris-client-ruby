@@ -10,5 +10,5 @@ additionalProperties:
   gemName: "stackone_hris_client"
   gemRequiredRubyVersion: ">= 2.7"
   gemSummary: "StackOne HRIS client gem"
-  gemVersion: "1.2.0"
+  gemVersion: "1.2.1"
   library: "typhoeus"

@@ -32,6 +32,10 @@
 | **company_name** | **String** |  | [optional] |
 | **home_country_location** | **String** |  | [optional] |
 | **work_country_location** | **String** |  | [optional] |
+| **home_location** | **String** |  | [optional] |
+| **work_location** | **String** |  | [optional] |
+| **company** | **String** |  | [optional] |
+| **employments** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
 
@@ -66,7 +70,11 @@ instance = StackOneHRIS::Employee.new(
   termination_date: null,
   company_name: null,
   home_country_location: null,
-  work_country_location: null
+  work_country_location: null,
+  home_location: null,
+  work_location: null,
+  company: null,
+  employments: null
 )
 ```
 

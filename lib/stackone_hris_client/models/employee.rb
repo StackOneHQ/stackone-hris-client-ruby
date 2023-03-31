@@ -71,6 +71,14 @@ module StackOneHRIS
 
     attr_accessor :work_country_location
 
+    attr_accessor :home_location
+
+    attr_accessor :work_location
+
+    attr_accessor :company
+
+    attr_accessor :employments
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -101,7 +109,11 @@ module StackOneHRIS
         :'termination_date' => :'termination_date',
         :'company_name' => :'company_name',
         :'home_country_location' => :'home_country_location',
-        :'work_country_location' => :'work_country_location'
+        :'work_country_location' => :'work_country_location',
+        :'home_location' => :'home_location',
+        :'work_location' => :'work_location',
+        :'company' => :'company',
+        :'employments' => :'employments'
       }
     end
 
@@ -140,7 +152,11 @@ module StackOneHRIS
         :'termination_date' => :'Time',
         :'company_name' => :'String',
         :'home_country_location' => :'String',
-        :'work_country_location' => :'String'
+        :'work_country_location' => :'String',
+        :'home_location' => :'String',
+        :'work_location' => :'String',
+        :'company' => :'String',
+        :'employments' => :'Array<String>'
       }
     end
 
@@ -276,6 +292,24 @@ module StackOneHRIS
       if attributes.key?(:'work_country_location')
         self.work_country_location = attributes[:'work_country_location']
       end
+
+      if attributes.key?(:'home_location')
+        self.home_location = attributes[:'home_location']
+      end
+
+      if attributes.key?(:'work_location')
+        self.work_location = attributes[:'work_location']
+      end
+
+      if attributes.key?(:'company')
+        self.company = attributes[:'company']
+      end
+
+      if attributes.key?(:'employments')
+        if (value = attributes[:'employments']).is_a?(Array)
+          self.employments = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -373,7 +407,11 @@ module StackOneHRIS
           termination_date == o.termination_date &&
           company_name == o.company_name &&
           home_country_location == o.home_country_location &&
-          work_country_location == o.work_country_location
+          work_country_location == o.work_country_location &&
+          home_location == o.home_location &&
+          work_location == o.work_location &&
+          company == o.company &&
+          employments == o.employments
     end
 
     # @see the `==` method
@@ -385,7 +423,7 @@ module StackOneHRIS
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, first_name, last_name, name, display_name, gender, ethnicity, date_of_birth, birthday, marital_status, avatar_url, personal_email, personal_phone_number, work_email, work_phone_number, job_title, department, manager_id, hire_date, start_date, tenure, work_anniversary, employment_type, employment_status, termination_date, company_name, home_country_location, work_country_location].hash
+      [id, first_name, last_name, name, display_name, gender, ethnicity, date_of_birth, birthday, marital_status, avatar_url, personal_email, personal_phone_number, work_email, work_phone_number, job_title, department, manager_id, hire_date, start_date, tenure, work_anniversary, employment_type, employment_status, termination_date, company_name, home_country_location, work_country_location, home_location, work_location, company, employments].hash
     end
 
     # Builds the object from hash
