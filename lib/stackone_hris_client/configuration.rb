@@ -152,6 +152,18 @@ module StackOneHRIS
 
     attr_accessor :force_ending_format
 
+    # Set this to customize the number of times to retry an API call when a server error occurs.
+    attr_accessor :max_retries
+
+    # Set this to customize the initial number of seconds to wait before retrying an API call when a server error occurs.
+    attr_accessor :initial_backoff_seconds
+
+    # Set this to customize the maximum number of seconds to keep retrying an API call when a server error occurs.
+    attr_accessor :max_backoff_seconds
+
+    # Define the status codes that should be retried.
+    attr_accessor :retry_status_codes
+
     def initialize
       @scheme = 'https'
       @host = 'stackone.com'
@@ -173,6 +185,12 @@ module StackOneHRIS
       @debugging = false
       @inject_format = false
       @force_ending_format = false
+
+      @max_retries = 5
+      @initial_backoff_seconds = 1
+      @max_backoff_seconds = 60
+      @retry_status_codes = [429]
+
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
 
       yield(self) if block_given?
