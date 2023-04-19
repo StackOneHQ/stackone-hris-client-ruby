@@ -11,5 +11,5 @@ OpenAPI Generator version: 6.5.0
 =end
 
 module StackOneHRIS
-  VERSION = '1.2.2'
+  VERSION = '1.3.0'
 end
