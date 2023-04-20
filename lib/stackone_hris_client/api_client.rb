@@ -46,7 +46,7 @@ module StackOneHRIS
     #
     # @return [Array<(Object, Integer, Hash)>] an array of 3 elements:
     #   the data deserialized from response body (could be nil), response status code and response headers.
-    def call_api(http_method, path, opts = {})
+    def call_api_basic(http_method, path, opts = {})
       request = build_request(http_method, path, opts)
       response = request.run
 
@@ -75,6 +75,12 @@ module StackOneHRIS
         data = nil
       end
       return data, response.code, response.headers
+    end
+
+    def call_api(http_method, path, opts = {})
+      retries_errors_with_exponential_backoff do
+        return call_api_basic(http_method, path, opts)
+      end
     end
 
     # Builds the HTTP request
@@ -156,6 +162,41 @@ module StackOneHRIS
         data = nil
       end
       data
+    end
+
+    def retries_errors_with_exponential_backoff(
+      max_retries: @config.max_retries,
+      initial_backoff_seconds: @config.initial_backoff_seconds,
+      max_backoff_seconds: @config.max_backoff_seconds,
+      &block
+    )
+      retry_count = 0
+      backoff_seconds = initial_backoff_seconds
+
+      loop do
+        begin
+          yield
+          break
+        rescue ApiError => e
+          raise e unless @config.retry_status_codes.include? e.code
+
+          if @config.debugging
+            @config.logger.debug "The error code (#{e.code}) matches retry_status_codes list. Retrying #(#{retry_count}) in #{backoff_seconds}s..."
+          end
+
+          if retry_count >= max_retries
+            if @config.debugging
+              @config.logger.debug "Maximum number of retries (#{max_retries}) reached. Raising exception: #{e}"
+            end
+
+            raise e
+          else
+            sleep backoff_seconds
+            retry_count += 1
+            backoff_seconds = [backoff_seconds * 2, max_backoff_seconds].min
+          end
+        end
+      end
     end
 
     # Save response body into a file in (the defined) temporary folder, using the filename
