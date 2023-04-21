@@ -186,9 +186,9 @@ module StackOneHRIS
       @inject_format = false
       @force_ending_format = false
 
-      @max_retries = 5
-      @initial_backoff_seconds = 1
-      @max_backoff_seconds = 60
+      @max_retries = 20
+      @initial_backoff_seconds = 30
+      @max_backoff_seconds = 180
       @retry_status_codes = [429]
 
       @logger = defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
