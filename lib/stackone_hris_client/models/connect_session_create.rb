@@ -30,6 +30,9 @@ module StackOneHRIS
     # The origin username
     attr_accessor :origin_username
 
+    # How long the session should be valid for in seconds
+    attr_accessor :expires_in
+
     # The metadata for the connection
     attr_accessor :metadata
 
@@ -63,6 +66,7 @@ module StackOneHRIS
         :'origin_owner_id' => :'origin_owner_id',
         :'origin_owner_name' => :'origin_owner_name',
         :'origin_username' => :'origin_username',
+        :'expires_in' => :'expires_in',
         :'metadata' => :'metadata'
       }
     end
@@ -80,6 +84,7 @@ module StackOneHRIS
         :'origin_owner_id' => :'String',
         :'origin_owner_name' => :'String',
         :'origin_username' => :'String',
+        :'expires_in' => :'Float',
         :'metadata' => :'Object'
       }
     end
@@ -127,6 +132,12 @@ module StackOneHRIS
         self.origin_username = attributes[:'origin_username']
       end
 
+      if attributes.key?(:'expires_in')
+        self.expires_in = attributes[:'expires_in']
+      else
+        self.expires_in = 1800
+      end
+
       if attributes.key?(:'metadata')
         self.metadata = attributes[:'metadata']
       end
@@ -165,6 +176,7 @@ module StackOneHRIS
           origin_owner_id == o.origin_owner_id &&
           origin_owner_name == o.origin_owner_name &&
           origin_username == o.origin_username &&
+          expires_in == o.expires_in &&
           metadata == o.metadata
     end
 
@@ -177,7 +189,7 @@ module StackOneHRIS
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [categories, provider, origin_owner_id, origin_owner_name, origin_username, metadata].hash
+      [categories, provider, origin_owner_id, origin_owner_name, origin_username, expires_in, metadata].hash
     end
 
     # Builds the object from hash

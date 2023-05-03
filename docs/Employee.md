@@ -32,10 +32,10 @@
 | **company_name** | **String** |  | [optional] |
 | **home_country_location** | **String** |  | [optional] |
 | **work_country_location** | **String** |  | [optional] |
-| **home_location** | **String** |  | [optional] |
-| **work_location** | **String** |  | [optional] |
+| **home_location** | [**Location**](Location.md) |  | [optional] |
+| **work_location** | [**Location**](Location.md) |  | [optional] |
 | **company** | **String** |  | [optional] |
-| **employments** | **Array&lt;String&gt;** |  | [optional] |
+| **employments** | [**Array&lt;Employment&gt;**](Employment.md) |  | [optional] |
 
 ## Example
 

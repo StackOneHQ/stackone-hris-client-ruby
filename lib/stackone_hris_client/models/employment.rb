@@ -165,9 +165,9 @@ module StackOneHRIS
       return false if @employee_id.nil?
       pay_period_validator = EnumAttributeValidator.new('String', ["hour", "day", "week", "every_two_weeks", "month", "quarter", "every_six_months", "year", "unmapped_value"])
       return false unless pay_period_validator.valid?(@pay_period)
-      pay_frequency_validator = EnumAttributeValidator.new('String', ["hourly", "weekly", "bi_weekly", "monthly", "quarterly", "semi_annually", "yearly", "thirteen_monthly", "pro_rata", "unmapped_value"])
+      pay_frequency_validator = EnumAttributeValidator.new('String', ["hourly", "weekly", "bi_weekly", "four_weekly", "semi_monthly", "monthly", "quarterly", "semi_annually", "yearly", "thirteen_monthly", "pro_rata", "unmapped_value"])
       return false unless pay_frequency_validator.valid?(@pay_frequency)
-      employment_type_validator = EnumAttributeValidator.new('String', ["full_time", "part_time", "contractor", "intern", "freelance", "terminated", "unmapped_value"])
+      employment_type_validator = EnumAttributeValidator.new('String', ["full_time", "part_time", "contractor", "intern", "freelance", "terminated", "unmapped_value", "temporary", "seasonal", "volunteer"])
       return false unless employment_type_validator.valid?(@employment_type)
       true
     end
@@ -185,7 +185,7 @@ module StackOneHRIS
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] pay_frequency Object to be assigned
     def pay_frequency=(pay_frequency)
-      validator = EnumAttributeValidator.new('String', ["hourly", "weekly", "bi_weekly", "monthly", "quarterly", "semi_annually", "yearly", "thirteen_monthly", "pro_rata", "unmapped_value"])
+      validator = EnumAttributeValidator.new('String', ["hourly", "weekly", "bi_weekly", "four_weekly", "semi_monthly", "monthly", "quarterly", "semi_annually", "yearly", "thirteen_monthly", "pro_rata", "unmapped_value"])
       unless validator.valid?(pay_frequency)
         fail ArgumentError, "invalid value for \"pay_frequency\", must be one of #{validator.allowable_values}."
       end
@@ -195,7 +195,7 @@ module StackOneHRIS
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] employment_type Object to be assigned
     def employment_type=(employment_type)
-      validator = EnumAttributeValidator.new('String', ["full_time", "part_time", "contractor", "intern", "freelance", "terminated", "unmapped_value"])
+      validator = EnumAttributeValidator.new('String', ["full_time", "part_time", "contractor", "intern", "freelance", "terminated", "unmapped_value", "temporary", "seasonal", "volunteer"])
       unless validator.valid?(employment_type)
         fail ArgumentError, "invalid value for \"employment_type\", must be one of #{validator.allowable_values}."
       end

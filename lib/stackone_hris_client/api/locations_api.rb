@@ -26,9 +26,9 @@ module StackOneHRIS
     # @option opts [String] :page The page number of the results to fetch
     # @option opts [String] :page_size The number of results per page (default to '25')
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
-    # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
-    # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
+    # @option opts [String] :fields The comma separated list of fields to return in the response (if empty, all fields are returned) (default to '')
     # @option opts [String] :sync_token The sync token to select the only updated results
+    # @option opts [String] :updated_after Use a string with a date to only select results updated after that given date
     # @return [LocationResult]
     def hris_locations_get(id, x_account_id, opts = {})
       data, _status_code, _headers = hris_locations_get_with_http_info(id, x_account_id, opts)
@@ -42,9 +42,9 @@ module StackOneHRIS
     # @option opts [String] :page The page number of the results to fetch
     # @option opts [String] :page_size The number of results per page (default to '25')
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
-    # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
-    # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
+    # @option opts [String] :fields The comma separated list of fields to return in the response (if empty, all fields are returned) (default to '')
     # @option opts [String] :sync_token The sync token to select the only updated results
+    # @option opts [String] :updated_after Use a string with a date to only select results updated after that given date
     # @return [Array<(LocationResult, Integer, Hash)>] LocationResult data, response status code and response headers
     def hris_locations_get_with_http_info(id, x_account_id, opts = {})
       if @api_client.config.debugging
@@ -66,9 +66,9 @@ module StackOneHRIS
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'raw'] = opts[:'raw'] if !opts[:'raw'].nil?
-      query_params[:'fields'] = @api_client.build_collection_param(opts[:'fields'], :multi) if !opts[:'fields'].nil?
-      query_params[:'expand'] = @api_client.build_collection_param(opts[:'expand'], :multi) if !opts[:'expand'].nil?
+      query_params[:'fields'] = opts[:'fields'] if !opts[:'fields'].nil?
       query_params[:'sync_token'] = opts[:'sync_token'] if !opts[:'sync_token'].nil?
+      query_params[:'updated_after'] = opts[:'updated_after'] if !opts[:'updated_after'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -111,9 +111,9 @@ module StackOneHRIS
     # @option opts [String] :page The page number of the results to fetch
     # @option opts [String] :page_size The number of results per page (default to '25')
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
-    # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
-    # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
+    # @option opts [String] :fields The comma separated list of fields to return in the response (if empty, all fields are returned) (default to '')
     # @option opts [String] :sync_token The sync token to select the only updated results
+    # @option opts [String] :updated_after Use a string with a date to only select results updated after that given date
     # @return [LocationsPaginated]
     def hris_locations_list(x_account_id, opts = {})
       data, _status_code, _headers = hris_locations_list_with_http_info(x_account_id, opts)
@@ -126,9 +126,9 @@ module StackOneHRIS
     # @option opts [String] :page The page number of the results to fetch
     # @option opts [String] :page_size The number of results per page (default to '25')
     # @option opts [Boolean] :raw Indicates that the raw request result is returned (default to false)
-    # @option opts [Array<String>] :fields The list of fields to return in the response (if empty, all fields are returned)
-    # @option opts [Array<String>] :expand The list of fields that will be expanded in the response
+    # @option opts [String] :fields The comma separated list of fields to return in the response (if empty, all fields are returned) (default to '')
     # @option opts [String] :sync_token The sync token to select the only updated results
+    # @option opts [String] :updated_after Use a string with a date to only select results updated after that given date
     # @return [Array<(LocationsPaginated, Integer, Hash)>] LocationsPaginated data, response status code and response headers
     def hris_locations_list_with_http_info(x_account_id, opts = {})
       if @api_client.config.debugging
@@ -146,9 +146,9 @@ module StackOneHRIS
       query_params[:'page'] = opts[:'page'] if !opts[:'page'].nil?
       query_params[:'page_size'] = opts[:'page_size'] if !opts[:'page_size'].nil?
       query_params[:'raw'] = opts[:'raw'] if !opts[:'raw'].nil?
-      query_params[:'fields'] = @api_client.build_collection_param(opts[:'fields'], :multi) if !opts[:'fields'].nil?
-      query_params[:'expand'] = @api_client.build_collection_param(opts[:'expand'], :multi) if !opts[:'expand'].nil?
+      query_params[:'fields'] = opts[:'fields'] if !opts[:'fields'].nil?
       query_params[:'sync_token'] = opts[:'sync_token'] if !opts[:'sync_token'].nil?
+      query_params[:'updated_after'] = opts[:'updated_after'] if !opts[:'updated_after'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

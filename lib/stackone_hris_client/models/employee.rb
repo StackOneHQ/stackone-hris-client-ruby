@@ -175,10 +175,10 @@ module StackOneHRIS
         :'company_name' => :'String',
         :'home_country_location' => :'String',
         :'work_country_location' => :'String',
-        :'home_location' => :'String',
-        :'work_location' => :'String',
+        :'home_location' => :'Location',
+        :'work_location' => :'Location',
         :'company' => :'String',
-        :'employments' => :'Array<String>'
+        :'employments' => :'Array<Employment>'
       }
     end
 
@@ -400,7 +400,7 @@ module StackOneHRIS
       return false if @work_email.nil?
       return false if @work_phone_number.nil?
       return false if @department.nil?
-      employment_type_validator = EnumAttributeValidator.new('String', ["full_time", "part_time", "contractor", "intern", "freelance", "terminated", "unmapped_value"])
+      employment_type_validator = EnumAttributeValidator.new('String', ["full_time", "part_time", "contractor", "intern", "freelance", "terminated", "unmapped_value", "temporary", "seasonal", "volunteer"])
       return false unless employment_type_validator.valid?(@employment_type)
       employment_status_validator = EnumAttributeValidator.new('String', ["active", "pending", "terminated", "unmapped_value"])
       return false unless employment_status_validator.valid?(@employment_status)
@@ -440,7 +440,7 @@ module StackOneHRIS
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] employment_type Object to be assigned
     def employment_type=(employment_type)
-      validator = EnumAttributeValidator.new('String', ["full_time", "part_time", "contractor", "intern", "freelance", "terminated", "unmapped_value"])
+      validator = EnumAttributeValidator.new('String', ["full_time", "part_time", "contractor", "intern", "freelance", "terminated", "unmapped_value", "temporary", "seasonal", "volunteer"])
       unless validator.valid?(employment_type)
         fail ArgumentError, "invalid value for \"employment_type\", must be one of #{validator.allowable_values}."
       end
