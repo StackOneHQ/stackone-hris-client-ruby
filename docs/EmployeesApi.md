@@ -33,9 +33,10 @@ opts = {
   page: 'page_example', # String | The page number of the results to fetch
   page_size: 'page_size_example', # String | The number of results per page
   raw: true, # Boolean | Indicates that the raw request result is returned
-  fields: ['inner_example'], # Array<String> | The list of fields to return in the response (if empty, all fields are returned)
-  expand: ['inner_example'], # Array<String> | The list of fields that will be expanded in the response
-  sync_token: 'sync_token_example' # String | The sync token to select the only updated results
+  fields: 'id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,personal_email,personal_phone_number,work_email,work_phone_number,job_title,department,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_status,termination_date,company_name,home_country_location,work_country_location', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
+  sync_token: 'sync_token_example', # String | The sync token to select the only updated results
+  updated_after: 'updated_after_example', # String | Use a string with a date to only select results updated after that given date
+  expand: 'work_location,home_location,employments' # String | The comma separated list of fields that will be expanded in the response
 }
 
 begin
@@ -74,9 +75,10 @@ end
 | **page** | **String** | The page number of the results to fetch | [optional] |
 | **page_size** | **String** | The number of results per page | [optional][default to &#39;25&#39;] |
 | **raw** | **Boolean** | Indicates that the raw request result is returned | [optional][default to false] |
-| **fields** | [**Array&lt;String&gt;**](String.md) | The list of fields to return in the response (if empty, all fields are returned) | [optional] |
-| **expand** | [**Array&lt;String&gt;**](String.md) | The list of fields that will be expanded in the response | [optional] |
+| **fields** | **String** | The comma separated list of fields to return in the response (if empty, all fields are returned) | [optional][default to &#39;&#39;] |
 | **sync_token** | **String** | The sync token to select the only updated results | [optional] |
+| **updated_after** | **String** | Use a string with a date to only select results updated after that given date | [optional] |
+| **expand** | **String** | The comma separated list of fields that will be expanded in the response | [optional][default to &#39;&#39;] |
 
 ### Return type
 
@@ -116,9 +118,10 @@ opts = {
   page: 'page_example', # String | The page number of the results to fetch
   page_size: 'page_size_example', # String | The number of results per page
   raw: true, # Boolean | Indicates that the raw request result is returned
-  fields: ['inner_example'], # Array<String> | The list of fields to return in the response (if empty, all fields are returned)
-  expand: ['inner_example'], # Array<String> | The list of fields that will be expanded in the response
-  sync_token: 'sync_token_example' # String | The sync token to select the only updated results
+  fields: 'id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,personal_email,personal_phone_number,work_email,work_phone_number,job_title,department,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_status,termination_date,company_name,home_country_location,work_country_location', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
+  sync_token: 'sync_token_example', # String | The sync token to select the only updated results
+  updated_after: 'updated_after_example', # String | Use a string with a date to only select results updated after that given date
+  expand: 'work_location,home_location,employments' # String | The comma separated list of fields that will be expanded in the response
 }
 
 begin
@@ -156,9 +159,10 @@ end
 | **page** | **String** | The page number of the results to fetch | [optional] |
 | **page_size** | **String** | The number of results per page | [optional][default to &#39;25&#39;] |
 | **raw** | **Boolean** | Indicates that the raw request result is returned | [optional][default to false] |
-| **fields** | [**Array&lt;String&gt;**](String.md) | The list of fields to return in the response (if empty, all fields are returned) | [optional] |
-| **expand** | [**Array&lt;String&gt;**](String.md) | The list of fields that will be expanded in the response | [optional] |
+| **fields** | **String** | The comma separated list of fields to return in the response (if empty, all fields are returned) | [optional][default to &#39;&#39;] |
 | **sync_token** | **String** | The sync token to select the only updated results | [optional] |
+| **updated_after** | **String** | Use a string with a date to only select results updated after that given date | [optional] |
+| **expand** | **String** | The comma separated list of fields that will be expanded in the response | [optional][default to &#39;&#39;] |
 
 ### Return type
 

@@ -33,9 +33,9 @@ opts = {
   page: 'page_example', # String | The page number of the results to fetch
   page_size: 'page_size_example', # String | The number of results per page
   raw: true, # Boolean | Indicates that the raw request result is returned
-  fields: ['inner_example'], # Array<String> | The list of fields to return in the response (if empty, all fields are returned)
-  expand: ['inner_example'], # Array<String> | The list of fields that will be expanded in the response
-  sync_token: 'sync_token_example' # String | The sync token to select the only updated results
+  fields: 'id,employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
+  sync_token: 'sync_token_example', # String | The sync token to select the only updated results
+  updated_after: 'updated_after_example' # String | Use a string with a date to only select results updated after that given date
 }
 
 begin
@@ -74,9 +74,9 @@ end
 | **page** | **String** | The page number of the results to fetch | [optional] |
 | **page_size** | **String** | The number of results per page | [optional][default to &#39;25&#39;] |
 | **raw** | **Boolean** | Indicates that the raw request result is returned | [optional][default to false] |
-| **fields** | [**Array&lt;String&gt;**](String.md) | The list of fields to return in the response (if empty, all fields are returned) | [optional] |
-| **expand** | [**Array&lt;String&gt;**](String.md) | The list of fields that will be expanded in the response | [optional] |
+| **fields** | **String** | The comma separated list of fields to return in the response (if empty, all fields are returned) | [optional][default to &#39;&#39;] |
 | **sync_token** | **String** | The sync token to select the only updated results | [optional] |
+| **updated_after** | **String** | Use a string with a date to only select results updated after that given date | [optional] |
 
 ### Return type
 
@@ -116,9 +116,9 @@ opts = {
   page: 'page_example', # String | The page number of the results to fetch
   page_size: 'page_size_example', # String | The number of results per page
   raw: true, # Boolean | Indicates that the raw request result is returned
-  fields: ['inner_example'], # Array<String> | The list of fields to return in the response (if empty, all fields are returned)
-  expand: ['inner_example'], # Array<String> | The list of fields that will be expanded in the response
-  sync_token: 'sync_token_example' # String | The sync token to select the only updated results
+  fields: 'id,employee_id,name,phone_number,street_1,street_2,city,state,zip_code,country,location_type', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
+  sync_token: 'sync_token_example', # String | The sync token to select the only updated results
+  updated_after: 'updated_after_example' # String | Use a string with a date to only select results updated after that given date
 }
 
 begin
@@ -156,9 +156,9 @@ end
 | **page** | **String** | The page number of the results to fetch | [optional] |
 | **page_size** | **String** | The number of results per page | [optional][default to &#39;25&#39;] |
 | **raw** | **Boolean** | Indicates that the raw request result is returned | [optional][default to false] |
-| **fields** | [**Array&lt;String&gt;**](String.md) | The list of fields to return in the response (if empty, all fields are returned) | [optional] |
-| **expand** | [**Array&lt;String&gt;**](String.md) | The list of fields that will be expanded in the response | [optional] |
+| **fields** | **String** | The comma separated list of fields to return in the response (if empty, all fields are returned) | [optional][default to &#39;&#39;] |
 | **sync_token** | **String** | The sync token to select the only updated results | [optional] |
+| **updated_after** | **String** | Use a string with a date to only select results updated after that given date | [optional] |
 
 ### Return type
 
