@@ -79,28 +79,6 @@ module StackOneHRIS
 
     attr_accessor :employments
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -152,11 +130,11 @@ module StackOneHRIS
         :'last_name' => :'String',
         :'name' => :'String',
         :'display_name' => :'String',
-        :'gender' => :'String',
-        :'ethnicity' => :'String',
+        :'gender' => :'GenderEnum',
+        :'ethnicity' => :'EthnicityEnum',
         :'date_of_birth' => :'Time',
         :'birthday' => :'Time',
-        :'marital_status' => :'String',
+        :'marital_status' => :'MaritalStatusEnum',
         :'avatar_url' => :'String',
         :'personal_email' => :'String',
         :'personal_phone_number' => :'String',
@@ -169,8 +147,8 @@ module StackOneHRIS
         :'start_date' => :'Time',
         :'tenure' => :'Float',
         :'work_anniversary' => :'Time',
-        :'employment_type' => :'String',
-        :'employment_status' => :'String',
+        :'employment_type' => :'EmploymentTypeEnum',
+        :'employment_status' => :'EmploymentStatusEnum',
         :'termination_date' => :'Time',
         :'company_name' => :'String',
         :'home_country_location' => :'String',
@@ -390,71 +368,11 @@ module StackOneHRIS
       return false if @name.nil?
       return false if @display_name.nil?
       return false if @gender.nil?
-      gender_validator = EnumAttributeValidator.new('String', ["male", "female", "non_binary", "other", "not_disclosed", "unmapped_value"])
-      return false unless gender_validator.valid?(@gender)
-      ethnicity_validator = EnumAttributeValidator.new('String', ["white", "black_or_african_american", "asian", "hispanic_or_latino", "american_indian_or_alaska_native", "native_hawaiian_or_pacific_islander", "two_or_more_races", "not_disclosed", "unmapped_value"])
-      return false unless ethnicity_validator.valid?(@ethnicity)
-      marital_status_validator = EnumAttributeValidator.new('String', ["single", "married", "divorced", "widowed", "domestic_partnership", "separated", "other", "unmapped_value"])
-      return false unless marital_status_validator.valid?(@marital_status)
       return false if @personal_phone_number.nil?
       return false if @work_email.nil?
       return false if @work_phone_number.nil?
       return false if @department.nil?
-      employment_type_validator = EnumAttributeValidator.new('String', ["full_time", "part_time", "contractor", "intern", "freelance", "terminated", "unmapped_value", "temporary", "seasonal", "volunteer"])
-      return false unless employment_type_validator.valid?(@employment_type)
-      employment_status_validator = EnumAttributeValidator.new('String', ["active", "pending", "terminated", "unmapped_value"])
-      return false unless employment_status_validator.valid?(@employment_status)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] gender Object to be assigned
-    def gender=(gender)
-      validator = EnumAttributeValidator.new('String', ["male", "female", "non_binary", "other", "not_disclosed", "unmapped_value"])
-      unless validator.valid?(gender)
-        fail ArgumentError, "invalid value for \"gender\", must be one of #{validator.allowable_values}."
-      end
-      @gender = gender
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] ethnicity Object to be assigned
-    def ethnicity=(ethnicity)
-      validator = EnumAttributeValidator.new('String', ["white", "black_or_african_american", "asian", "hispanic_or_latino", "american_indian_or_alaska_native", "native_hawaiian_or_pacific_islander", "two_or_more_races", "not_disclosed", "unmapped_value"])
-      unless validator.valid?(ethnicity)
-        fail ArgumentError, "invalid value for \"ethnicity\", must be one of #{validator.allowable_values}."
-      end
-      @ethnicity = ethnicity
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] marital_status Object to be assigned
-    def marital_status=(marital_status)
-      validator = EnumAttributeValidator.new('String', ["single", "married", "divorced", "widowed", "domestic_partnership", "separated", "other", "unmapped_value"])
-      unless validator.valid?(marital_status)
-        fail ArgumentError, "invalid value for \"marital_status\", must be one of #{validator.allowable_values}."
-      end
-      @marital_status = marital_status
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] employment_type Object to be assigned
-    def employment_type=(employment_type)
-      validator = EnumAttributeValidator.new('String', ["full_time", "part_time", "contractor", "intern", "freelance", "terminated", "unmapped_value", "temporary", "seasonal", "volunteer"])
-      unless validator.valid?(employment_type)
-        fail ArgumentError, "invalid value for \"employment_type\", must be one of #{validator.allowable_values}."
-      end
-      @employment_type = employment_type
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] employment_status Object to be assigned
-    def employment_status=(employment_status)
-      validator = EnumAttributeValidator.new('String', ["active", "pending", "terminated", "unmapped_value"])
-      unless validator.valid?(employment_status)
-        fail ArgumentError, "invalid value for \"employment_status\", must be one of #{validator.allowable_values}."
-      end
-      @employment_status = employment_status
     end
 
     # Checks equality by comparing each attribute.
