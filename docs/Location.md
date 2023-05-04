@@ -14,7 +14,7 @@
 | **state** | **String** |  | [optional] |
 | **zip_code** | **String** |  | [optional] |
 | **country** | **String** |  | [optional] |
-| **location_type** | **String** |  | [optional] |
+| **location_type** | [**LocationTypeEnum**](LocationTypeEnum.md) |  | [optional] |
 
 ## Example
 

@@ -37,28 +37,6 @@ module StackOneHRIS
 
     attr_accessor :location_type
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -94,7 +72,7 @@ module StackOneHRIS
         :'state' => :'String',
         :'zip_code' => :'String',
         :'country' => :'String',
-        :'location_type' => :'String'
+        :'location_type' => :'LocationTypeEnum'
       }
     end
 
@@ -179,19 +157,7 @@ module StackOneHRIS
     # @return true if the model is valid
     def valid?
       return false if @employee_id.nil?
-      location_type_validator = EnumAttributeValidator.new('String', ["home", "work", "unmapped_value"])
-      return false unless location_type_validator.valid?(@location_type)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] location_type Object to be assigned
-    def location_type=(location_type)
-      validator = EnumAttributeValidator.new('String', ["home", "work", "unmapped_value"])
-      unless validator.valid?(location_type)
-        fail ArgumentError, "invalid value for \"location_type\", must be one of #{validator.allowable_values}."
-      end
-      @location_type = location_type
     end
 
     # Checks equality by comparing each attribute.

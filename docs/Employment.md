@@ -8,11 +8,11 @@
 | **employee_id** | **String** |  |  |
 | **job_title** | **String** |  | [optional] |
 | **pay_rate** | **String** |  | [optional] |
-| **pay_period** | **String** |  | [optional] |
-| **pay_frequency** | **String** |  | [optional] |
+| **pay_period** | [**PayPeriodEnum**](PayPeriodEnum.md) |  | [optional] |
+| **pay_frequency** | [**PayFrequencyEnum**](PayFrequencyEnum.md) |  | [optional] |
 | **pay_currency** | **String** |  | [optional] |
 | **effective_date** | **Time** |  | [optional] |
-| **employment_type** | **String** |  | [optional] |
+| **employment_type** | [**EmploymentTypeEnum**](EmploymentTypeEnum.md) |  | [optional] |
 
 ## Example
 

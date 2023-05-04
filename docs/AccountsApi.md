@@ -1,6 +1,6 @@
 # StackOneHRIS::AccountsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.stackone.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -23,8 +23,7 @@ require 'stackone_hris_client'
 # setup authorization
 StackOneHRIS.configure do |config|
   # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
+  config.api_key_token = 'YOUR API KEY'
 end
 
 api_instance = StackOneHRIS::AccountsApi.new
@@ -91,8 +90,7 @@ require 'stackone_hris_client'
 # setup authorization
 StackOneHRIS.configure do |config|
   # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
+  config.api_key_token = 'YOUR API KEY'
 end
 
 api_instance = StackOneHRIS::AccountsApi.new
@@ -159,8 +157,7 @@ require 'stackone_hris_client'
 # setup authorization
 StackOneHRIS.configure do |config|
   # Configure HTTP basic authorization: basic
-  config.username = 'YOUR USERNAME'
-  config.password = 'YOUR PASSWORD'
+  config.api_key_token = 'YOUR API KEY'
 end
 
 api_instance = StackOneHRIS::AccountsApi.new

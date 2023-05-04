@@ -9,11 +9,11 @@
 | **last_name** | **String** |  |  |
 | **name** | **String** |  |  |
 | **display_name** | **String** |  |  |
-| **gender** | **String** |  |  |
-| **ethnicity** | **String** |  | [optional] |
+| **gender** | [**GenderEnum**](GenderEnum.md) |  |  |
+| **ethnicity** | [**EthnicityEnum**](EthnicityEnum.md) |  | [optional] |
 | **date_of_birth** | **Time** |  | [optional] |
 | **birthday** | **Time** |  | [optional] |
-| **marital_status** | **String** |  | [optional] |
+| **marital_status** | [**MaritalStatusEnum**](MaritalStatusEnum.md) |  | [optional] |
 | **avatar_url** | **String** |  | [optional] |
 | **personal_email** | **String** |  | [optional] |
 | **personal_phone_number** | **String** |  |  |
@@ -26,8 +26,8 @@
 | **start_date** | **Time** |  | [optional] |
 | **tenure** | **Float** |  | [optional] |
 | **work_anniversary** | **Time** |  | [optional] |
-| **employment_type** | **String** |  | [optional] |
-| **employment_status** | **String** |  | [optional] |
+| **employment_type** | [**EmploymentTypeEnum**](EmploymentTypeEnum.md) |  | [optional] |
+| **employment_status** | [**EmploymentStatusEnum**](EmploymentStatusEnum.md) |  | [optional] |
 | **termination_date** | **Time** |  | [optional] |
 | **company_name** | **String** |  | [optional] |
 | **home_country_location** | **String** |  | [optional] |
