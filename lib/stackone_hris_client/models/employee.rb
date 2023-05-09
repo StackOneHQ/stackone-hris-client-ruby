@@ -67,10 +67,6 @@ module StackOneHRIS
 
     attr_accessor :company_name
 
-    attr_accessor :home_country_location
-
-    attr_accessor :work_country_location
-
     attr_accessor :home_location
 
     attr_accessor :work_location
@@ -108,8 +104,6 @@ module StackOneHRIS
         :'employment_status' => :'employment_status',
         :'termination_date' => :'termination_date',
         :'company_name' => :'company_name',
-        :'home_country_location' => :'home_country_location',
-        :'work_country_location' => :'work_country_location',
         :'home_location' => :'home_location',
         :'work_location' => :'work_location',
         :'company' => :'company',
@@ -151,8 +145,6 @@ module StackOneHRIS
         :'employment_status' => :'EmploymentStatusEnum',
         :'termination_date' => :'Time',
         :'company_name' => :'String',
-        :'home_country_location' => :'String',
-        :'work_country_location' => :'String',
         :'home_location' => :'Location',
         :'work_location' => :'Location',
         :'company' => :'String',
@@ -285,14 +277,6 @@ module StackOneHRIS
         self.company_name = attributes[:'company_name']
       end
 
-      if attributes.key?(:'home_country_location')
-        self.home_country_location = attributes[:'home_country_location']
-      end
-
-      if attributes.key?(:'work_country_location')
-        self.work_country_location = attributes[:'work_country_location']
-      end
-
       if attributes.key?(:'home_location')
         self.home_location = attributes[:'home_location']
       end
@@ -406,8 +390,6 @@ module StackOneHRIS
           employment_status == o.employment_status &&
           termination_date == o.termination_date &&
           company_name == o.company_name &&
-          home_country_location == o.home_country_location &&
-          work_country_location == o.work_country_location &&
           home_location == o.home_location &&
           work_location == o.work_location &&
           company == o.company &&
@@ -423,7 +405,7 @@ module StackOneHRIS
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, first_name, last_name, name, display_name, gender, ethnicity, date_of_birth, birthday, marital_status, avatar_url, personal_email, personal_phone_number, work_email, work_phone_number, job_title, department, manager_id, hire_date, start_date, tenure, work_anniversary, employment_type, employment_status, termination_date, company_name, home_country_location, work_country_location, home_location, work_location, company, employments].hash
+      [id, first_name, last_name, name, display_name, gender, ethnicity, date_of_birth, birthday, marital_status, avatar_url, personal_email, personal_phone_number, work_email, work_phone_number, job_title, department, manager_id, hire_date, start_date, tenure, work_anniversary, employment_type, employment_status, termination_date, company_name, home_location, work_location, company, employments].hash
     end
 
     # Builds the object from hash

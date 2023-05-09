@@ -14,43 +14,38 @@ require 'date'
 require 'time'
 
 module StackOneHRIS
-  class Location
-    attr_accessor :id
+  class CountryCodeEnum
+    attr_accessor :value
 
-    attr_accessor :employee_id
+    attr_accessor :source_value
 
-    attr_accessor :name
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
 
-    attr_accessor :phone_number
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
 
-    attr_accessor :street_1
-
-    attr_accessor :street_2
-
-    attr_accessor :city
-
-    attr_accessor :state
-
-    attr_accessor :zip_code
-
-    attr_accessor :country
-
-    attr_accessor :location_type
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'employee_id' => :'employee_id',
-        :'name' => :'name',
-        :'phone_number' => :'phone_number',
-        :'street_1' => :'street_1',
-        :'street_2' => :'street_2',
-        :'city' => :'city',
-        :'state' => :'state',
-        :'zip_code' => :'zip_code',
-        :'country' => :'country',
-        :'location_type' => :'location_type'
+        :'value' => :'value',
+        :'source_value' => :'source_value'
       }
     end
 
@@ -62,17 +57,8 @@ module StackOneHRIS
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'employee_id' => :'String',
-        :'name' => :'String',
-        :'phone_number' => :'String',
-        :'street_1' => :'String',
-        :'street_2' => :'String',
-        :'city' => :'String',
-        :'state' => :'String',
-        :'zip_code' => :'String',
-        :'country' => :'CountryCodeEnum',
-        :'location_type' => :'LocationTypeEnum'
+        :'value' => :'String',
+        :'source_value' => :'String'
       }
     end
 
@@ -86,59 +72,23 @@ module StackOneHRIS
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `StackOneHRIS::Location` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `StackOneHRIS::CountryCodeEnum` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `StackOneHRIS::Location`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `StackOneHRIS::CountryCodeEnum`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
       end
 
-      if attributes.key?(:'employee_id')
-        self.employee_id = attributes[:'employee_id']
-      end
-
-      if attributes.key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.key?(:'phone_number')
-        self.phone_number = attributes[:'phone_number']
-      end
-
-      if attributes.key?(:'street_1')
-        self.street_1 = attributes[:'street_1']
-      end
-
-      if attributes.key?(:'street_2')
-        self.street_2 = attributes[:'street_2']
-      end
-
-      if attributes.key?(:'city')
-        self.city = attributes[:'city']
-      end
-
-      if attributes.key?(:'state')
-        self.state = attributes[:'state']
-      end
-
-      if attributes.key?(:'zip_code')
-        self.zip_code = attributes[:'zip_code']
-      end
-
-      if attributes.key?(:'country')
-        self.country = attributes[:'country']
-      end
-
-      if attributes.key?(:'location_type')
-        self.location_type = attributes[:'location_type']
+      if attributes.key?(:'source_value')
+        self.source_value = attributes[:'source_value']
       end
     end
 
@@ -146,8 +96,12 @@ module StackOneHRIS
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @employee_id.nil?
-        invalid_properties.push('invalid value for "employee_id", employee_id cannot be nil.')
+      if @value.nil?
+        invalid_properties.push('invalid value for "value", value cannot be nil.')
+      end
+
+      if @source_value.nil?
+        invalid_properties.push('invalid value for "source_value", source_value cannot be nil.')
       end
 
       invalid_properties
@@ -156,8 +110,21 @@ module StackOneHRIS
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @employee_id.nil?
+      return false if @value.nil?
+      value_validator = EnumAttributeValidator.new('String', ["AF", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM", "AW", "AU", "AT", "AZ", "BS", "BH", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO", "BQ", "BA", "BW", "BV", "BR", "IO", "BN", "BG", "BF", "BI", "KH", "CM", "CA", "CV", "KY", "CF", "TD", "CL", "CN", "CX", "CC", "CO", "KM", "CG", "CD", "CK", "CR", "HR", "CU", "CW", "CY", "CZ", "CI", "DK", "DJ", "DM", "DO", "EC", "EG", "SV", "GQ", "ER", "EE", "ET", "FK", "FO", "FJ", "FI", "FR", "GF", "PF", "TF", "GA", "GM", "GE", "DE", "GH", "GI", "GR", "GL", "GD", "GP", "GU", "GT", "GG", "GN", "GW", "GY", "HT", "HM", "VA", "HN", "HK", "HU", "IS", "IN", "ID", "IR", "IQ", "IE", "IM", "IL", "IT", "JM", "JP", "JE", "JO", "KZ", "KE", "KI", "KP", "KR", "KW", "KG", "LA", "LV", "LB", "LS", "LR", "LY", "LI", "LT", "LU", "MO", "MK", "MG", "MW", "MY", "MV", "ML", "MT", "MH", "MQ", "MR", "MU", "YT", "MX", "FM", "MD", "MC", "MN", "ME", "MS", "MA", "MZ", "MM", "NA", "NR", "NP", "NL", "NC", "NZ", "NI", "NE", "NG", "NU", "NF", "MP", "NO", "OM", "PK", "PW", "PS", "PA", "PG", "PY", "PE", "PH", "PN", "PL", "PT", "PR", "QA", "RO", "RU", "RW", "RE", "BL", "SH", "KN", "LC", "MF", "PM", "VC", "WS", "SM", "ST", "SA", "SN", "RS", "SC", "SL", "SG", "SX", "SK", "SI", "SB", "SO", "ZA", "GS", "SS", "ES", "LK", "SD", "SR", "SJ", "SZ", "SE", "CH", "SY", "TW", "TJ", "TZ", "TH", "TL", "TG", "TK", "TO", "TT", "TN", "TR", "TM", "TC", "TV", "UG", "UA", "AE", "GB", "US", "UM", "UY", "UZ", "VU", "VE", "VN", "VG", "VI", "WF", "EH", "YE", "ZM", "ZW"])
+      return false unless value_validator.valid?(@value)
+      return false if @source_value.nil?
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] value Object to be assigned
+    def value=(value)
+      validator = EnumAttributeValidator.new('String', ["AF", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM", "AW", "AU", "AT", "AZ", "BS", "BH", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO", "BQ", "BA", "BW", "BV", "BR", "IO", "BN", "BG", "BF", "BI", "KH", "CM", "CA", "CV", "KY", "CF", "TD", "CL", "CN", "CX", "CC", "CO", "KM", "CG", "CD", "CK", "CR", "HR", "CU", "CW", "CY", "CZ", "CI", "DK", "DJ", "DM", "DO", "EC", "EG", "SV", "GQ", "ER", "EE", "ET", "FK", "FO", "FJ", "FI", "FR", "GF", "PF", "TF", "GA", "GM", "GE", "DE", "GH", "GI", "GR", "GL", "GD", "GP", "GU", "GT", "GG", "GN", "GW", "GY", "HT", "HM", "VA", "HN", "HK", "HU", "IS", "IN", "ID", "IR", "IQ", "IE", "IM", "IL", "IT", "JM", "JP", "JE", "JO", "KZ", "KE", "KI", "KP", "KR", "KW", "KG", "LA", "LV", "LB", "LS", "LR", "LY", "LI", "LT", "LU", "MO", "MK", "MG", "MW", "MY", "MV", "ML", "MT", "MH", "MQ", "MR", "MU", "YT", "MX", "FM", "MD", "MC", "MN", "ME", "MS", "MA", "MZ", "MM", "NA", "NR", "NP", "NL", "NC", "NZ", "NI", "NE", "NG", "NU", "NF", "MP", "NO", "OM", "PK", "PW", "PS", "PA", "PG", "PY", "PE", "PH", "PN", "PL", "PT", "PR", "QA", "RO", "RU", "RW", "RE", "BL", "SH", "KN", "LC", "MF", "PM", "VC", "WS", "SM", "ST", "SA", "SN", "RS", "SC", "SL", "SG", "SX", "SK", "SI", "SB", "SO", "ZA", "GS", "SS", "ES", "LK", "SD", "SR", "SJ", "SZ", "SE", "CH", "SY", "TW", "TJ", "TZ", "TH", "TL", "TG", "TK", "TO", "TT", "TN", "TR", "TM", "TC", "TV", "UG", "UA", "AE", "GB", "US", "UM", "UY", "UZ", "VU", "VE", "VN", "VG", "VI", "WF", "EH", "YE", "ZM", "ZW"])
+      unless validator.valid?(value)
+        fail ArgumentError, "invalid value for \"value\", must be one of #{validator.allowable_values}."
+      end
+      @value = value
     end
 
     # Checks equality by comparing each attribute.
@@ -165,17 +132,8 @@ module StackOneHRIS
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          employee_id == o.employee_id &&
-          name == o.name &&
-          phone_number == o.phone_number &&
-          street_1 == o.street_1 &&
-          street_2 == o.street_2 &&
-          city == o.city &&
-          state == o.state &&
-          zip_code == o.zip_code &&
-          country == o.country &&
-          location_type == o.location_type
+          value == o.value &&
+          source_value == o.source_value
     end
 
     # @see the `==` method
@@ -187,7 +145,7 @@ module StackOneHRIS
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, employee_id, name, phone_number, street_1, street_2, city, state, zip_code, country, location_type].hash
+      [value, source_value].hash
     end
 
     # Builds the object from hash
