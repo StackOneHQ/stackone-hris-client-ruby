@@ -13,7 +13,7 @@
 | **city** | **String** |  | [optional] |
 | **state** | **String** |  | [optional] |
 | **zip_code** | **String** |  | [optional] |
-| **country** | **String** |  | [optional] |
+| **country** | [**CountryCodeEnum**](CountryCodeEnum.md) |  | [optional] |
 | **location_type** | [**LocationTypeEnum**](LocationTypeEnum.md) |  | [optional] |
 
 ## Example

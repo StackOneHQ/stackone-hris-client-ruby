@@ -30,8 +30,6 @@
 | **employment_status** | [**EmploymentStatusEnum**](EmploymentStatusEnum.md) |  | [optional] |
 | **termination_date** | **Time** |  | [optional] |
 | **company_name** | **String** |  | [optional] |
-| **home_country_location** | **String** |  | [optional] |
-| **work_country_location** | **String** |  | [optional] |
 | **home_location** | [**Location**](Location.md) |  | [optional] |
 | **work_location** | [**Location**](Location.md) |  | [optional] |
 | **company** | **String** |  | [optional] |
@@ -69,8 +67,6 @@ instance = StackOneHRIS::Employee.new(
   employment_status: null,
   termination_date: null,
   company_name: null,
-  home_country_location: null,
-  work_country_location: null,
   home_location: null,
   work_location: null,
   company: null,
