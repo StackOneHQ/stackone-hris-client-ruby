@@ -35,7 +35,7 @@ module StackOneHRIS
 
     attr_accessor :marital_status
 
-    attr_accessor :avatar_url
+    attr_accessor :avatar
 
     attr_accessor :personal_email
 
@@ -88,7 +88,7 @@ module StackOneHRIS
         :'date_of_birth' => :'date_of_birth',
         :'birthday' => :'birthday',
         :'marital_status' => :'marital_status',
-        :'avatar_url' => :'avatar_url',
+        :'avatar' => :'avatar',
         :'personal_email' => :'personal_email',
         :'personal_phone_number' => :'personal_phone_number',
         :'work_email' => :'work_email',
@@ -129,7 +129,7 @@ module StackOneHRIS
         :'date_of_birth' => :'Time',
         :'birthday' => :'Time',
         :'marital_status' => :'MaritalStatusEnum',
-        :'avatar_url' => :'String',
+        :'avatar' => :'Image',
         :'personal_email' => :'String',
         :'personal_phone_number' => :'String',
         :'work_email' => :'String',
@@ -213,8 +213,8 @@ module StackOneHRIS
         self.marital_status = attributes[:'marital_status']
       end
 
-      if attributes.key?(:'avatar_url')
-        self.avatar_url = attributes[:'avatar_url']
+      if attributes.key?(:'avatar')
+        self.avatar = attributes[:'avatar']
       end
 
       if attributes.key?(:'personal_email')
@@ -374,7 +374,7 @@ module StackOneHRIS
           date_of_birth == o.date_of_birth &&
           birthday == o.birthday &&
           marital_status == o.marital_status &&
-          avatar_url == o.avatar_url &&
+          avatar == o.avatar &&
           personal_email == o.personal_email &&
           personal_phone_number == o.personal_phone_number &&
           work_email == o.work_email &&
@@ -405,7 +405,7 @@ module StackOneHRIS
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, first_name, last_name, name, display_name, gender, ethnicity, date_of_birth, birthday, marital_status, avatar_url, personal_email, personal_phone_number, work_email, work_phone_number, job_title, department, manager_id, hire_date, start_date, tenure, work_anniversary, employment_type, employment_status, termination_date, company_name, home_location, work_location, company, employments].hash
+      [id, first_name, last_name, name, display_name, gender, ethnicity, date_of_birth, birthday, marital_status, avatar, personal_email, personal_phone_number, work_email, work_phone_number, job_title, department, manager_id, hire_date, start_date, tenure, work_anniversary, employment_type, employment_status, termination_date, company_name, home_location, work_location, company, employments].hash
     end
 
     # Builds the object from hash
