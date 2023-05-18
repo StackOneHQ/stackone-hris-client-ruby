@@ -32,7 +32,7 @@ opts = {
   page: 'page_example', # String | The page number of the results to fetch
   page_size: 'page_size_example', # String | The number of results per page
   raw: true, # Boolean | Indicates that the raw request result is returned
-  fields: 'id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,personal_email,personal_phone_number,work_email,work_phone_number,job_title,department,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_status,termination_date,company_name', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
+  fields: 'id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,department,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_status,termination_date,company_name', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
   sync_token: 'sync_token_example', # String | The sync token to select the only updated results
   updated_after: 'updated_after_example', # String | Use a string with a date to only select results updated after that given date
   expand: 'work_location,home_location,employments' # String | The comma separated list of fields that will be expanded in the response
@@ -116,7 +116,7 @@ opts = {
   page: 'page_example', # String | The page number of the results to fetch
   page_size: 'page_size_example', # String | The number of results per page
   raw: true, # Boolean | Indicates that the raw request result is returned
-  fields: 'id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar_url,personal_email,personal_phone_number,work_email,work_phone_number,job_title,department,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_status,termination_date,company_name', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
+  fields: 'id,first_name,last_name,name,display_name,gender,ethnicity,date_of_birth,birthday,marital_status,avatar,personal_email,personal_phone_number,work_email,work_phone_number,job_title,department,manager_id,hire_date,start_date,tenure,work_anniversary,employment_type,employment_status,termination_date,company_name', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
   sync_token: 'sync_token_example', # String | The sync token to select the only updated results
   updated_after: 'updated_after_example', # String | Use a string with a date to only select results updated after that given date
   expand: 'work_location,home_location,employments' # String | The comma separated list of fields that will be expanded in the response
