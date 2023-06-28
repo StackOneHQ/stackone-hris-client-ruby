@@ -232,7 +232,7 @@ module StackOneHRIS
 
       return '' if region_slug.nil? || region_slug.empty? || region_slug == 'dev'
 
-      "api.#{region_slug}."
+      "api."
     end
 
     # Returns base URL for specified operation based on server settings
