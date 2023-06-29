@@ -4,15 +4,15 @@ All URIs are relative to *https://api.stackone.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**hris_locations_get**](LocationsApi.md#hris_locations_get) | **GET** /unified/hris/locations/{id} |  |
-| [**hris_locations_list**](LocationsApi.md#hris_locations_list) | **GET** /unified/hris/locations |  |
+| [**hris_locations_get**](LocationsApi.md#hris_locations_get) | **GET** /unified/hris/locations/{id} | Get location |
+| [**hris_locations_list**](LocationsApi.md#hris_locations_list) | **GET** /unified/hris/locations | List locations |
 
 
 ## hris_locations_get
 
 > <LocationResult> hris_locations_get(id, x_account_id, opts)
 
-
+Get location
 
 ### Examples
 
@@ -38,7 +38,7 @@ opts = {
 }
 
 begin
-  # 
+  # Get location
   result = api_instance.hris_locations_get(id, x_account_id, opts)
   p result
 rescue StackOneHRIS::ApiError => e
@@ -54,7 +54,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # 
+  # Get location
   data, status_code, headers = api_instance.hris_locations_get_with_http_info(id, x_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -95,7 +95,7 @@ end
 
 > <LocationsPaginated> hris_locations_list(x_account_id, opts)
 
-
+List locations
 
 ### Examples
 
@@ -120,7 +120,7 @@ opts = {
 }
 
 begin
-  # 
+  # List locations
   result = api_instance.hris_locations_list(x_account_id, opts)
   p result
 rescue StackOneHRIS::ApiError => e
@@ -136,7 +136,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # 
+  # List locations
   data, status_code, headers = api_instance.hris_locations_list_with_http_info(x_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }

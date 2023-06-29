@@ -15,6 +15,7 @@
 | **birthday** | **Time** |  | [optional] |
 | **marital_status** | [**MaritalStatusEnum**](MaritalStatusEnum.md) |  | [optional] |
 | **avatar** | [**Image**](Image.md) |  | [optional] |
+| **avatar_url** | **String** |  | [optional] |
 | **personal_email** | **String** |  | [optional] |
 | **personal_phone_number** | **String** |  |  |
 | **work_email** | **String** |  |  |
@@ -52,6 +53,7 @@ instance = StackOneHRIS::Employee.new(
   birthday: null,
   marital_status: null,
   avatar: null,
+  avatar_url: null,
   personal_email: null,
   personal_phone_number: null,
   work_email: null,

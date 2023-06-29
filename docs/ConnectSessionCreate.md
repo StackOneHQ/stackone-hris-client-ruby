@@ -18,7 +18,7 @@
 require 'stackone_hris_client'
 
 instance = StackOneHRIS::ConnectSessionCreate.new(
-  categories: [&quot;ats&quot;,&quot;hris&quot;,&quot;crm&quot;,&quot;common&quot;],
+  categories: [&quot;ats&quot;,&quot;hris&quot;,&quot;crm&quot;,&quot;marketing&quot;,&quot;common&quot;],
   provider: null,
   origin_owner_id: null,
   origin_owner_name: null,

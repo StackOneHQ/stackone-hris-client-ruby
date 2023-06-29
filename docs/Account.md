@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  |  |
 | **provider** | **String** |  |  |
+| **active** | **Boolean** |  |  |
 | **origin_owner_id** | **String** |  |  |
 | **origin_owner_name** | **String** |  |  |
 | **origin_username** | **String** |  |  |
@@ -21,6 +22,7 @@ require 'stackone_hris_client'
 instance = StackOneHRIS::Account.new(
   id: null,
   provider: null,
+  active: null,
   origin_owner_id: null,
   origin_owner_name: null,
   origin_username: null,

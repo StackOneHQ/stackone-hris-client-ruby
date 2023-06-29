@@ -4,15 +4,15 @@ All URIs are relative to *https://api.stackone.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**connect_sessions_authenticate**](ConnectSessionsApi.md#connect_sessions_authenticate) | **POST** /connect_sessions/authenticate |  |
-| [**connect_sessions_create**](ConnectSessionsApi.md#connect_sessions_create) | **POST** /connect_sessions |  |
+| [**connect_sessions_authenticate**](ConnectSessionsApi.md#connect_sessions_authenticate) | **POST** /connect_sessions/authenticate | Authenticate Session |
+| [**connect_sessions_create**](ConnectSessionsApi.md#connect_sessions_create) | **POST** /connect_sessions | Create Session |
 
 
 ## connect_sessions_authenticate
 
 > <ConnectSession> connect_sessions_authenticate(connect_session_authenticate)
 
-
+Authenticate Session
 
 ### Examples
 
@@ -29,7 +29,7 @@ api_instance = StackOneHRIS::ConnectSessionsApi.new
 connect_session_authenticate = StackOneHRIS::ConnectSessionAuthenticate.new({token: 'token_example'}) # ConnectSessionAuthenticate | The parameters to authenticate
 
 begin
-  # 
+  # Authenticate Session
   result = api_instance.connect_sessions_authenticate(connect_session_authenticate)
   p result
 rescue StackOneHRIS::ApiError => e
@@ -45,7 +45,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # 
+  # Authenticate Session
   data, status_code, headers = api_instance.connect_sessions_authenticate_with_http_info(connect_session_authenticate)
   p status_code # => 2xx
   p headers # => { ... }
@@ -79,7 +79,7 @@ end
 
 > <ConnectSessionToken> connect_sessions_create(connect_session_create)
 
-
+Create Session
 
 ### Examples
 
@@ -96,7 +96,7 @@ api_instance = StackOneHRIS::ConnectSessionsApi.new
 connect_session_create = StackOneHRIS::ConnectSessionCreate.new({origin_owner_id: 'origin_owner_id_example', origin_owner_name: 'origin_owner_name_example'}) # ConnectSessionCreate | 
 
 begin
-  # 
+  # Create Session
   result = api_instance.connect_sessions_create(connect_session_create)
   p result
 rescue StackOneHRIS::ApiError => e
@@ -112,7 +112,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # 
+  # Create Session
   data, status_code, headers = api_instance.connect_sessions_create_with_http_info(connect_session_create)
   p status_code # => 2xx
   p headers # => { ... }
