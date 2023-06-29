@@ -4,16 +4,16 @@ All URIs are relative to *https://api.stackone.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**accounts_delete**](AccountsApi.md#accounts_delete) | **DELETE** /accounts/{id} |  |
-| [**accounts_get**](AccountsApi.md#accounts_get) | **GET** /accounts/{id} |  |
-| [**accounts_list**](AccountsApi.md#accounts_list) | **GET** /accounts |  |
+| [**accounts_delete**](AccountsApi.md#accounts_delete) | **DELETE** /accounts/{id} | Delete Account |
+| [**accounts_get**](AccountsApi.md#accounts_get) | **GET** /accounts/{id} | Get Account |
+| [**accounts_list**](AccountsApi.md#accounts_list) | **GET** /accounts | List Accounts |
 
 
 ## accounts_delete
 
 > <Account> accounts_delete(id)
 
-
+Delete Account
 
 ### Examples
 
@@ -30,7 +30,7 @@ api_instance = StackOneHRIS::AccountsApi.new
 id = 'id_example' # String | 
 
 begin
-  # 
+  # Delete Account
   result = api_instance.accounts_delete(id)
   p result
 rescue StackOneHRIS::ApiError => e
@@ -46,7 +46,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # 
+  # Delete Account
   data, status_code, headers = api_instance.accounts_delete_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -80,7 +80,7 @@ end
 
 > <Account> accounts_get(id)
 
-
+Get Account
 
 ### Examples
 
@@ -97,7 +97,7 @@ api_instance = StackOneHRIS::AccountsApi.new
 id = 'id_example' # String | 
 
 begin
-  # 
+  # Get Account
   result = api_instance.accounts_get(id)
   p result
 rescue StackOneHRIS::ApiError => e
@@ -113,7 +113,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # 
+  # Get Account
   data, status_code, headers = api_instance.accounts_get_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -147,7 +147,7 @@ end
 
 > <Array<Account>> accounts_list(opts)
 
-
+List Accounts
 
 ### Examples
 
@@ -167,7 +167,7 @@ opts = {
 }
 
 begin
-  # 
+  # List Accounts
   result = api_instance.accounts_list(opts)
   p result
 rescue StackOneHRIS::ApiError => e
@@ -183,7 +183,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # 
+  # List Accounts
   data, status_code, headers = api_instance.accounts_list_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }

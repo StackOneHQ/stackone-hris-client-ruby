@@ -4,15 +4,15 @@ All URIs are relative to *https://api.stackone.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**employments_get**](EmploymentsApi.md#employments_get) | **GET** /unified/hris/employments/{id} |  |
-| [**employments_list**](EmploymentsApi.md#employments_list) | **GET** /unified/hris/employments |  |
+| [**hris_employments_get**](EmploymentsApi.md#hris_employments_get) | **GET** /unified/hris/employments/{id} | Get Employment |
+| [**hris_employments_list**](EmploymentsApi.md#hris_employments_list) | **GET** /unified/hris/employments | List Employments |
 
 
-## employments_get
+## hris_employments_get
 
-> <EmploymentResult> employments_get(id, x_account_id, opts)
+> <EmploymentResult> hris_employments_get(id, x_account_id, opts)
 
-
+Get Employment
 
 ### Examples
 
@@ -38,29 +38,29 @@ opts = {
 }
 
 begin
-  # 
-  result = api_instance.employments_get(id, x_account_id, opts)
+  # Get Employment
+  result = api_instance.hris_employments_get(id, x_account_id, opts)
   p result
 rescue StackOneHRIS::ApiError => e
-  puts "Error when calling EmploymentsApi->employments_get: #{e}"
+  puts "Error when calling EmploymentsApi->hris_employments_get: #{e}"
 end
 ```
 
-#### Using the employments_get_with_http_info variant
+#### Using the hris_employments_get_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<EmploymentResult>, Integer, Hash)> employments_get_with_http_info(id, x_account_id, opts)
+> <Array(<EmploymentResult>, Integer, Hash)> hris_employments_get_with_http_info(id, x_account_id, opts)
 
 ```ruby
 begin
-  # 
-  data, status_code, headers = api_instance.employments_get_with_http_info(id, x_account_id, opts)
+  # Get Employment
+  data, status_code, headers = api_instance.hris_employments_get_with_http_info(id, x_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmploymentResult>
 rescue StackOneHRIS::ApiError => e
-  puts "Error when calling EmploymentsApi->employments_get_with_http_info: #{e}"
+  puts "Error when calling EmploymentsApi->hris_employments_get_with_http_info: #{e}"
 end
 ```
 
@@ -91,11 +91,11 @@ end
 - **Accept**: application/json
 
 
-## employments_list
+## hris_employments_list
 
-> <EmploymentsPaginated> employments_list(x_account_id, opts)
+> <EmploymentsPaginated> hris_employments_list(x_account_id, opts)
 
-
+List Employments
 
 ### Examples
 
@@ -120,29 +120,29 @@ opts = {
 }
 
 begin
-  # 
-  result = api_instance.employments_list(x_account_id, opts)
+  # List Employments
+  result = api_instance.hris_employments_list(x_account_id, opts)
   p result
 rescue StackOneHRIS::ApiError => e
-  puts "Error when calling EmploymentsApi->employments_list: #{e}"
+  puts "Error when calling EmploymentsApi->hris_employments_list: #{e}"
 end
 ```
 
-#### Using the employments_list_with_http_info variant
+#### Using the hris_employments_list_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<EmploymentsPaginated>, Integer, Hash)> employments_list_with_http_info(x_account_id, opts)
+> <Array(<EmploymentsPaginated>, Integer, Hash)> hris_employments_list_with_http_info(x_account_id, opts)
 
 ```ruby
 begin
-  # 
-  data, status_code, headers = api_instance.employments_list_with_http_info(x_account_id, opts)
+  # List Employments
+  data, status_code, headers = api_instance.hris_employments_list_with_http_info(x_account_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmploymentsPaginated>
 rescue StackOneHRIS::ApiError => e
-  puts "Error when calling EmploymentsApi->employments_list_with_http_info: #{e}"
+  puts "Error when calling EmploymentsApi->hris_employments_list_with_http_info: #{e}"
 end
 ```
 
