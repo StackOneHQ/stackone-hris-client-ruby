@@ -1,4 +1,4 @@
-# StackOneHRIS::Location
+# StackOneHRIS::EmployeeApiModelWorkLocation
 
 ## Properties
 
@@ -21,7 +21,7 @@
 ```ruby
 require 'stackone_hris_client'
 
-instance = StackOneHRIS::Location.new(
+instance = StackOneHRIS::EmployeeApiModelWorkLocation.new(
   id: 123456,
   employee_id: 1687-3,
   name: Woolsthorpe Manor,

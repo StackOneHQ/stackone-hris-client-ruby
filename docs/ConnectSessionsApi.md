@@ -93,7 +93,7 @@ StackOneHRIS.configure do |config|
 end
 
 api_instance = StackOneHRIS::ConnectSessionsApi.new
-connect_session_create = StackOneHRIS::ConnectSessionCreate.new({origin_owner_id: 'origin_owner_id_example', origin_owner_name: 'origin_owner_name_example'}) # ConnectSessionCreate | 
+connect_session_create = StackOneHRIS::ConnectSessionCreate.new({origin_owner_id: 'origin_owner_id_example', origin_owner_name: 'origin_owner_name_example'}) # ConnectSessionCreate |
 
 begin
   # Create Session

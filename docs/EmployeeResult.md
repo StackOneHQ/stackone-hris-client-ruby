@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **data** | [**Employee**](Employee.md) |  |  |
+| **data** | [**EmployeeApiModel**](EmployeeApiModel.md) |  |  |
 | **raw** | **String** |  | [optional] |
 
 ## Example
