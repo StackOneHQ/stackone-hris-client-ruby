@@ -15,22 +15,31 @@ require 'time'
 
 module StackOneHRIS
   class Location
+    # The unique ID of the location
     attr_accessor :id
 
+    # The employee ID
     attr_accessor :employee_id
 
+    # The name of the location
     attr_accessor :name
 
+    # The phone number of the location
     attr_accessor :phone_number
 
+    # The first line of the address
     attr_accessor :street_1
 
+    # The second line of the address
     attr_accessor :street_2
 
+    # The city where the location is situated
     attr_accessor :city
 
+    # The state where the location is situated
     attr_accessor :state
 
+    # The ZIP code/Postal code of the location
     attr_accessor :zip_code
 
     attr_accessor :country
@@ -71,8 +80,8 @@ module StackOneHRIS
         :'city' => :'String',
         :'state' => :'String',
         :'zip_code' => :'String',
-        :'country' => :'CountryCodeEnum',
-        :'location_type' => :'LocationTypeEnum'
+        :'country' => :'LocationCountry',
+        :'location_type' => :'LocationLocationType'
       }
     end
 
@@ -146,17 +155,12 @@ module StackOneHRIS
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @employee_id.nil?
-        invalid_properties.push('invalid value for "employee_id", employee_id cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @employee_id.nil?
       true
     end
 

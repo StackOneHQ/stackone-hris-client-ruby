@@ -166,7 +166,7 @@ module StackOneHRIS
 
     def initialize
       @scheme = 'https'
-      @host = 'stackone.com'
+      @host = 'api.stackone.com'
       @base_path = ''
       @server_index = nil
       @server_operation_index = {}

@@ -14,19 +14,53 @@ require 'date'
 require 'time'
 
 module StackOneHRIS
-  class EmployeesPaginated
-    attr_accessor :next_page
+  # The employee work location
+  class EmployeeApiModelWorkLocation
+    # The unique ID of the location
+    attr_accessor :id
 
-    attr_accessor :data
+    # The employee ID
+    attr_accessor :employee_id
 
-    attr_accessor :raw
+    # The name of the location
+    attr_accessor :name
+
+    # The phone number of the location
+    attr_accessor :phone_number
+
+    # The first line of the address
+    attr_accessor :street_1
+
+    # The second line of the address
+    attr_accessor :street_2
+
+    # The city where the location is situated
+    attr_accessor :city
+
+    # The state where the location is situated
+    attr_accessor :state
+
+    # The ZIP code/Postal code of the location
+    attr_accessor :zip_code
+
+    attr_accessor :country
+
+    attr_accessor :location_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'next_page' => :'next_page',
-        :'data' => :'data',
-        :'raw' => :'raw'
+        :'id' => :'id',
+        :'employee_id' => :'employee_id',
+        :'name' => :'name',
+        :'phone_number' => :'phone_number',
+        :'street_1' => :'street_1',
+        :'street_2' => :'street_2',
+        :'city' => :'city',
+        :'state' => :'state',
+        :'zip_code' => :'zip_code',
+        :'country' => :'country',
+        :'location_type' => :'location_type'
       }
     end
 
@@ -38,9 +72,17 @@ module StackOneHRIS
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'next_page' => :'String',
-        :'data' => :'Array<EmployeeApiModel>',
-        :'raw' => :'String'
+        :'id' => :'String',
+        :'employee_id' => :'String',
+        :'name' => :'String',
+        :'phone_number' => :'String',
+        :'street_1' => :'String',
+        :'street_2' => :'String',
+        :'city' => :'String',
+        :'state' => :'String',
+        :'zip_code' => :'String',
+        :'country' => :'LocationCountry',
+        :'location_type' => :'LocationLocationType'
       }
     end
 
@@ -50,33 +92,70 @@ module StackOneHRIS
       ])
     end
 
+    # List of class defined in allOf (OpenAPI v3)
+    def self.openapi_all_of
+      [
+      :'Location'
+      ]
+    end
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `StackOneHRIS::EmployeesPaginated` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `StackOneHRIS::EmployeeApiModelWorkLocation` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `StackOneHRIS::EmployeesPaginated`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `StackOneHRIS::EmployeeApiModelWorkLocation`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'next_page')
-        self.next_page = attributes[:'next_page']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'employee_id')
+        self.employee_id = attributes[:'employee_id']
       end
 
-      if attributes.key?(:'raw')
-        self.raw = attributes[:'raw']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'phone_number')
+        self.phone_number = attributes[:'phone_number']
+      end
+
+      if attributes.key?(:'street_1')
+        self.street_1 = attributes[:'street_1']
+      end
+
+      if attributes.key?(:'street_2')
+        self.street_2 = attributes[:'street_2']
+      end
+
+      if attributes.key?(:'city')
+        self.city = attributes[:'city']
+      end
+
+      if attributes.key?(:'state')
+        self.state = attributes[:'state']
+      end
+
+      if attributes.key?(:'zip_code')
+        self.zip_code = attributes[:'zip_code']
+      end
+
+      if attributes.key?(:'country')
+        self.country = attributes[:'country']
+      end
+
+      if attributes.key?(:'location_type')
+        self.location_type = attributes[:'location_type']
       end
     end
 
@@ -84,22 +163,12 @@ module StackOneHRIS
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @next_page.nil?
-        invalid_properties.push('invalid value for "next_page", next_page cannot be nil.')
-      end
-
-      if @data.nil?
-        invalid_properties.push('invalid value for "data", data cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @next_page.nil?
-      return false if @data.nil?
       true
     end
 
@@ -108,9 +177,17 @@ module StackOneHRIS
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          next_page == o.next_page &&
-          data == o.data &&
-          raw == o.raw
+          id == o.id &&
+          employee_id == o.employee_id &&
+          name == o.name &&
+          phone_number == o.phone_number &&
+          street_1 == o.street_1 &&
+          street_2 == o.street_2 &&
+          city == o.city &&
+          state == o.state &&
+          zip_code == o.zip_code &&
+          country == o.country &&
+          location_type == o.location_type
     end
 
     # @see the `==` method
@@ -122,7 +199,7 @@ module StackOneHRIS
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [next_page, data, raw].hash
+      [id, employee_id, name, phone_number, street_1, street_2, city, state, zip_code, country, location_type].hash
     end
 
     # Builds the object from hash
@@ -243,5 +320,7 @@ module StackOneHRIS
         value
       end
     end
+
   end
+
 end

@@ -35,7 +35,7 @@ module StackOneHRIS
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'data' => :'Employee',
+        :'data' => :'EmployeeApiModel',
         :'raw' => :'String'
       }
     end

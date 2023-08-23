@@ -14,19 +14,17 @@ require 'date'
 require 'time'
 
 module StackOneHRIS
-  class EmployeesPaginated
-    attr_accessor :next_page
+  # The employee avatar
+  class EmployeeApiModelAvatar
+    attr_accessor :url
 
-    attr_accessor :data
-
-    attr_accessor :raw
+    attr_accessor :base64
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'next_page' => :'next_page',
-        :'data' => :'data',
-        :'raw' => :'raw'
+        :'url' => :'url',
+        :'base64' => :'base64'
       }
     end
 
@@ -38,9 +36,8 @@ module StackOneHRIS
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'next_page' => :'String',
-        :'data' => :'Array<EmployeeApiModel>',
-        :'raw' => :'String'
+        :'url' => :'String',
+        :'base64' => :'String'
       }
     end
 
@@ -50,33 +47,34 @@ module StackOneHRIS
       ])
     end
 
+    # List of class defined in allOf (OpenAPI v3)
+    def self.openapi_all_of
+      [
+      :'Image'
+      ]
+    end
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `StackOneHRIS::EmployeesPaginated` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `StackOneHRIS::EmployeeApiModelAvatar` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `StackOneHRIS::EmployeesPaginated`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `StackOneHRIS::EmployeeApiModelAvatar`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'next_page')
-        self.next_page = attributes[:'next_page']
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
       end
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
-      end
-
-      if attributes.key?(:'raw')
-        self.raw = attributes[:'raw']
+      if attributes.key?(:'base64')
+        self.base64 = attributes[:'base64']
       end
     end
 
@@ -84,22 +82,12 @@ module StackOneHRIS
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @next_page.nil?
-        invalid_properties.push('invalid value for "next_page", next_page cannot be nil.')
-      end
-
-      if @data.nil?
-        invalid_properties.push('invalid value for "data", data cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @next_page.nil?
-      return false if @data.nil?
       true
     end
 
@@ -108,9 +96,8 @@ module StackOneHRIS
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          next_page == o.next_page &&
-          data == o.data &&
-          raw == o.raw
+          url == o.url &&
+          base64 == o.base64
     end
 
     # @see the `==` method
@@ -122,7 +109,7 @@ module StackOneHRIS
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [next_page, data, raw].hash
+      [url, base64].hash
     end
 
     # Builds the object from hash
@@ -243,5 +230,7 @@ module StackOneHRIS
         value
       end
     end
+
   end
+
 end

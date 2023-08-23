@@ -14,19 +14,37 @@ require 'date'
 require 'time'
 
 module StackOneHRIS
-  class EmployeesPaginated
-    attr_accessor :next_page
+  class EmployeeCustomFields
+    # The unique identifier for the custom field, which defaults to the name property if the ID is not accessible.
+    attr_accessor :id
 
-    attr_accessor :data
+    # The name of the custom field.
+    attr_accessor :name
 
-    attr_accessor :raw
+    # The description of the custom field.
+    attr_accessor :description
+
+    attr_accessor :type
+
+    # The value associated with the custom field.
+    attr_accessor :value
+
+    # The unique identifier for the value of the custom field.
+    attr_accessor :value_id
+
+    # An array of possible options for the custom field.
+    attr_accessor :options
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'next_page' => :'next_page',
-        :'data' => :'data',
-        :'raw' => :'raw'
+        :'id' => :'id',
+        :'name' => :'name',
+        :'description' => :'description',
+        :'type' => :'type',
+        :'value' => :'value',
+        :'value_id' => :'value_id',
+        :'options' => :'options'
       }
     end
 
@@ -38,9 +56,13 @@ module StackOneHRIS
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'next_page' => :'String',
-        :'data' => :'Array<EmployeeApiModel>',
-        :'raw' => :'String'
+        :'id' => :'String',
+        :'name' => :'String',
+        :'description' => :'String',
+        :'type' => :'EmployeeCustomFieldsType',
+        :'value' => :'Object',
+        :'value_id' => :'String',
+        :'options' => :'Array<String>'
       }
     end
 
@@ -54,29 +76,45 @@ module StackOneHRIS
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `StackOneHRIS::EmployeesPaginated` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `StackOneHRIS::EmployeeCustomFields` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `StackOneHRIS::EmployeesPaginated`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `StackOneHRIS::EmployeeCustomFields`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'next_page')
-        self.next_page = attributes[:'next_page']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'value')
+        self.value = attributes[:'value']
+      end
+
+      if attributes.key?(:'value_id')
+        self.value_id = attributes[:'value_id']
+      end
+
+      if attributes.key?(:'options')
+        if (value = attributes[:'options']).is_a?(Array)
+          self.options = value
         end
-      end
-
-      if attributes.key?(:'raw')
-        self.raw = attributes[:'raw']
       end
     end
 
@@ -84,22 +122,12 @@ module StackOneHRIS
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @next_page.nil?
-        invalid_properties.push('invalid value for "next_page", next_page cannot be nil.')
-      end
-
-      if @data.nil?
-        invalid_properties.push('invalid value for "data", data cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @next_page.nil?
-      return false if @data.nil?
       true
     end
 
@@ -108,9 +136,13 @@ module StackOneHRIS
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          next_page == o.next_page &&
-          data == o.data &&
-          raw == o.raw
+          id == o.id &&
+          name == o.name &&
+          description == o.description &&
+          type == o.type &&
+          value == o.value &&
+          value_id == o.value_id &&
+          options == o.options
     end
 
     # @see the `==` method
@@ -122,7 +154,7 @@ module StackOneHRIS
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [next_page, data, raw].hash
+      [id, name, description, type, value, value_id, options].hash
     end
 
     # Builds the object from hash
@@ -243,5 +275,7 @@ module StackOneHRIS
         value
       end
     end
+
   end
+
 end

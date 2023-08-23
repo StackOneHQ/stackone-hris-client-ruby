@@ -14,19 +14,19 @@ require 'date'
 require 'time'
 
 module StackOneHRIS
-  class EmployeesPaginated
-    attr_accessor :next_page
+  class CreateEmployeeResult
+    attr_accessor :status_code
 
-    attr_accessor :data
+    attr_accessor :message
 
-    attr_accessor :raw
+    attr_accessor :timestamp
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'next_page' => :'next_page',
-        :'data' => :'data',
-        :'raw' => :'raw'
+        :'status_code' => :'statusCode',
+        :'message' => :'message',
+        :'timestamp' => :'timestamp'
       }
     end
 
@@ -38,9 +38,9 @@ module StackOneHRIS
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'next_page' => :'String',
-        :'data' => :'Array<EmployeeApiModel>',
-        :'raw' => :'String'
+        :'status_code' => :'Float',
+        :'message' => :'String',
+        :'timestamp' => :'Time'
       }
     end
 
@@ -54,29 +54,27 @@ module StackOneHRIS
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `StackOneHRIS::EmployeesPaginated` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `StackOneHRIS::CreateEmployeeResult` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `StackOneHRIS::EmployeesPaginated`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `StackOneHRIS::CreateEmployeeResult`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'next_page')
-        self.next_page = attributes[:'next_page']
+      if attributes.key?(:'status_code')
+        self.status_code = attributes[:'status_code']
       end
 
-      if attributes.key?(:'data')
-        if (value = attributes[:'data']).is_a?(Array)
-          self.data = value
-        end
+      if attributes.key?(:'message')
+        self.message = attributes[:'message']
       end
 
-      if attributes.key?(:'raw')
-        self.raw = attributes[:'raw']
+      if attributes.key?(:'timestamp')
+        self.timestamp = attributes[:'timestamp']
       end
     end
 
@@ -84,12 +82,16 @@ module StackOneHRIS
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @next_page.nil?
-        invalid_properties.push('invalid value for "next_page", next_page cannot be nil.')
+      if @status_code.nil?
+        invalid_properties.push('invalid value for "status_code", status_code cannot be nil.')
       end
 
-      if @data.nil?
-        invalid_properties.push('invalid value for "data", data cannot be nil.')
+      if @message.nil?
+        invalid_properties.push('invalid value for "message", message cannot be nil.')
+      end
+
+      if @timestamp.nil?
+        invalid_properties.push('invalid value for "timestamp", timestamp cannot be nil.')
       end
 
       invalid_properties
@@ -98,8 +100,9 @@ module StackOneHRIS
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @next_page.nil?
-      return false if @data.nil?
+      return false if @status_code.nil?
+      return false if @message.nil?
+      return false if @timestamp.nil?
       true
     end
 
@@ -108,9 +111,9 @@ module StackOneHRIS
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          next_page == o.next_page &&
-          data == o.data &&
-          raw == o.raw
+          status_code == o.status_code &&
+          message == o.message &&
+          timestamp == o.timestamp
     end
 
     # @see the `==` method
@@ -122,7 +125,7 @@ module StackOneHRIS
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [next_page, data, raw].hash
+      [status_code, message, timestamp].hash
     end
 
     # Builds the object from hash
@@ -243,5 +246,7 @@ module StackOneHRIS
         value
       end
     end
+
   end
+
 end
