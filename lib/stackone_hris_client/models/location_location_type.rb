@@ -119,8 +119,6 @@ module StackOneHRIS
     # @return true if the model is valid
     def valid?
       return false if @value.nil?
-      value_validator = EnumAttributeValidator.new('String', ["home", "work", "unmapped_value"])
-      return false unless value_validator.valid?(@value)
       return false if @source_value.nil?
       true
     end

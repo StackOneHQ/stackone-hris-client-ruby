@@ -119,8 +119,6 @@ module StackOneHRIS
     # @return true if the model is valid
     def valid?
       return false if @value.nil?
-      value_validator = EnumAttributeValidator.new('String', ["white", "black_or_african_american", "asian", "hispanic_or_latino", "american_indian_or_alaska_native", "native_hawaiian_or_pacific_islander", "two_or_more_races", "not_disclosed", "other", "unmapped_value"])
-      return false unless value_validator.valid?(@value)
       return false if @source_value.nil?
       true
     end
