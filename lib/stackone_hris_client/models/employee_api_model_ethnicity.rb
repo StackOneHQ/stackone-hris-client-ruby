@@ -126,10 +126,6 @@ module StackOneHRIS
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] value Object to be assigned
     def value=(value)
-      validator = EnumAttributeValidator.new('String', ["white", "black_or_african_american", "asian", "hispanic_or_latino", "american_indian_or_alaska_native", "native_hawaiian_or_pacific_islander", "two_or_more_races", "not_disclosed", "other", "unmapped_value"])
-      unless validator.valid?(value)
-        fail ArgumentError, "invalid value for \"value\", must be one of #{validator.allowable_values}."
-      end
       @value = value
     end
 

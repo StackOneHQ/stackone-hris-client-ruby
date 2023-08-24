@@ -118,10 +118,6 @@ module StackOneHRIS
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] value Object to be assigned
     def value=(value)
-      validator = EnumAttributeValidator.new('String', ["active", "pending", "terminated", "leave", "unmapped_value"])
-      unless validator.valid?(value)
-        fail ArgumentError, "invalid value for \"value\", must be one of #{validator.allowable_values}."
-      end
       @value = value
     end
 

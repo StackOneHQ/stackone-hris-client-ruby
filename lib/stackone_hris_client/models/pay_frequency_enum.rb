@@ -118,10 +118,6 @@ module StackOneHRIS
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] value Object to be assigned
     def value=(value)
-      validator = EnumAttributeValidator.new('String', ["hourly", "weekly", "bi_weekly", "four_weekly", "semi_monthly", "monthly", "bi_monthly", "quarterly", "semi_annually", "yearly", "thirteen_monthly", "pro_rata", "unmapped_value", "half_yearly"])
-      unless validator.valid?(value)
-        fail ArgumentError, "invalid value for \"value\", must be one of #{validator.allowable_values}."
-      end
       @value = value
     end
 
