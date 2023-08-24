@@ -39,7 +39,7 @@ module StackOneHRIS
     def self.openapi_types
       {
         :'next_page' => :'String',
-        :'data' => :'Array<EmployeeApiModel>',
+        :'data' => :'Array<Employee>',
         :'raw' => :'String'
       }
     end

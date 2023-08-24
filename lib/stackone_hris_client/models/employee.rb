@@ -15,67 +15,92 @@ require 'time'
 
 module StackOneHRIS
   class Employee
+    # The employee ID
     attr_accessor :id
 
+    # The employee first name
     attr_accessor :first_name
 
+    # The employee last name
     attr_accessor :last_name
 
+    # The employee name
     attr_accessor :name
 
+    # The employee display name
     attr_accessor :display_name
+
+    # The employee avatar Url
+    attr_accessor :avatar_url
+
+    # The employee personal email
+    attr_accessor :personal_email
+
+    # The employee personal phone number
+    attr_accessor :personal_phone_number
+
+    # The employee work email
+    attr_accessor :work_email
+
+    # The employee work phone number
+    attr_accessor :work_phone_number
+
+    # The employee job title
+    attr_accessor :job_title
+
+    # The employee department
+    attr_accessor :department
+
+    # The employee manager ID
+    attr_accessor :manager_id
 
     attr_accessor :gender
 
     attr_accessor :ethnicity
 
+    # The employee date_of_birth
     attr_accessor :date_of_birth
 
+    # The employee birthday
     attr_accessor :birthday
 
     attr_accessor :marital_status
 
     attr_accessor :avatar
 
-    attr_accessor :avatar_url
-
-    attr_accessor :personal_email
-
-    attr_accessor :personal_phone_number
-
-    attr_accessor :work_email
-
-    attr_accessor :work_phone_number
-
-    attr_accessor :job_title
-
-    attr_accessor :department
-
-    attr_accessor :manager_id
-
+    # The employee hire date
     attr_accessor :hire_date
 
+    # The employee start date
     attr_accessor :start_date
 
+    # The employee tenure
     attr_accessor :tenure
 
+    # The employee work anniversary
     attr_accessor :work_anniversary
 
     attr_accessor :employment_type
 
+    attr_accessor :employment_contract_type
+
     attr_accessor :employment_status
 
+    # The employee termination date
     attr_accessor :termination_date
-
-    attr_accessor :company_name
 
     attr_accessor :home_location
 
     attr_accessor :work_location
 
-    attr_accessor :company
+    # The employee company name
+    attr_accessor :company_name
 
+    # The employee employments
     attr_accessor :employments
+
+    # The employee custom fields
+    attr_accessor :custom_fields
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -85,12 +110,6 @@ module StackOneHRIS
         :'last_name' => :'last_name',
         :'name' => :'name',
         :'display_name' => :'display_name',
-        :'gender' => :'gender',
-        :'ethnicity' => :'ethnicity',
-        :'date_of_birth' => :'date_of_birth',
-        :'birthday' => :'birthday',
-        :'marital_status' => :'marital_status',
-        :'avatar' => :'avatar',
         :'avatar_url' => :'avatar_url',
         :'personal_email' => :'personal_email',
         :'personal_phone_number' => :'personal_phone_number',
@@ -99,18 +118,25 @@ module StackOneHRIS
         :'job_title' => :'job_title',
         :'department' => :'department',
         :'manager_id' => :'manager_id',
+        :'gender' => :'gender',
+        :'ethnicity' => :'ethnicity',
+        :'date_of_birth' => :'date_of_birth',
+        :'birthday' => :'birthday',
+        :'marital_status' => :'marital_status',
+        :'avatar' => :'avatar',
         :'hire_date' => :'hire_date',
         :'start_date' => :'start_date',
         :'tenure' => :'tenure',
         :'work_anniversary' => :'work_anniversary',
         :'employment_type' => :'employment_type',
+        :'employment_contract_type' => :'employment_contract_type',
         :'employment_status' => :'employment_status',
         :'termination_date' => :'termination_date',
-        :'company_name' => :'company_name',
         :'home_location' => :'home_location',
         :'work_location' => :'work_location',
-        :'company' => :'company',
-        :'employments' => :'employments'
+        :'company_name' => :'company_name',
+        :'employments' => :'employments',
+        :'custom_fields' => :'custom_fields'
       }
     end
 
@@ -127,12 +153,6 @@ module StackOneHRIS
         :'last_name' => :'String',
         :'name' => :'String',
         :'display_name' => :'String',
-        :'gender' => :'GenderEnum',
-        :'ethnicity' => :'EthnicityEnum',
-        :'date_of_birth' => :'Time',
-        :'birthday' => :'Time',
-        :'marital_status' => :'MaritalStatusEnum',
-        :'avatar' => :'Image',
         :'avatar_url' => :'String',
         :'personal_email' => :'String',
         :'personal_phone_number' => :'String',
@@ -141,18 +161,25 @@ module StackOneHRIS
         :'job_title' => :'String',
         :'department' => :'String',
         :'manager_id' => :'String',
-        :'hire_date' => :'Time',
-        :'start_date' => :'Time',
-        :'tenure' => :'Float',
-        :'work_anniversary' => :'Time',
-        :'employment_type' => :'EmploymentTypeEnum',
-        :'employment_status' => :'EmploymentStatusEnum',
-        :'termination_date' => :'Time',
+        :'gender' => :'EmployeeApiModelGender',
+        :'ethnicity' => :'EmployeeApiModelEthnicity',
+        :'date_of_birth' => :'String',
+        :'birthday' => :'String',
+        :'marital_status' => :'EmployeeApiModelMaritalStatus',
+        :'avatar' => :'EmployeeApiModelAvatar',
+        :'hire_date' => :'String',
+        :'start_date' => :'String',
+        :'tenure' => :'String',
+        :'work_anniversary' => :'String',
+        :'employment_type' => :'EmployeeApiModelEmploymentType',
+        :'employment_contract_type' => :'EmploymentEmploymentContractType',
+        :'employment_status' => :'EmployeeApiModelEmploymentStatus',
+        :'termination_date' => :'String',
+        :'home_location' => :'EmployeeApiModelHomeLocation',
+        :'work_location' => :'EmployeeApiModelWorkLocation',
         :'company_name' => :'String',
-        :'home_location' => :'Location',
-        :'work_location' => :'Location',
-        :'company' => :'String',
-        :'employments' => :'Array<Employment>'
+        :'employments' => :'Array<Employment>',
+        :'custom_fields' => :'Array<EmployeeCustomFields>'
       }
     end
 
@@ -197,30 +224,6 @@ module StackOneHRIS
         self.display_name = attributes[:'display_name']
       end
 
-      if attributes.key?(:'gender')
-        self.gender = attributes[:'gender']
-      end
-
-      if attributes.key?(:'ethnicity')
-        self.ethnicity = attributes[:'ethnicity']
-      end
-
-      if attributes.key?(:'date_of_birth')
-        self.date_of_birth = attributes[:'date_of_birth']
-      end
-
-      if attributes.key?(:'birthday')
-        self.birthday = attributes[:'birthday']
-      end
-
-      if attributes.key?(:'marital_status')
-        self.marital_status = attributes[:'marital_status']
-      end
-
-      if attributes.key?(:'avatar')
-        self.avatar = attributes[:'avatar']
-      end
-
       if attributes.key?(:'avatar_url')
         self.avatar_url = attributes[:'avatar_url']
       end
@@ -253,6 +256,30 @@ module StackOneHRIS
         self.manager_id = attributes[:'manager_id']
       end
 
+      if attributes.key?(:'gender')
+        self.gender = attributes[:'gender']
+      end
+
+      if attributes.key?(:'ethnicity')
+        self.ethnicity = attributes[:'ethnicity']
+      end
+
+      if attributes.key?(:'date_of_birth')
+        self.date_of_birth = attributes[:'date_of_birth']
+      end
+
+      if attributes.key?(:'birthday')
+        self.birthday = attributes[:'birthday']
+      end
+
+      if attributes.key?(:'marital_status')
+        self.marital_status = attributes[:'marital_status']
+      end
+
+      if attributes.key?(:'avatar')
+        self.avatar = attributes[:'avatar']
+      end
+
       if attributes.key?(:'hire_date')
         self.hire_date = attributes[:'hire_date']
       end
@@ -273,16 +300,16 @@ module StackOneHRIS
         self.employment_type = attributes[:'employment_type']
       end
 
+      if attributes.key?(:'employment_contract_type')
+        self.employment_contract_type = attributes[:'employment_contract_type']
+      end
+
       if attributes.key?(:'employment_status')
         self.employment_status = attributes[:'employment_status']
       end
 
       if attributes.key?(:'termination_date')
         self.termination_date = attributes[:'termination_date']
-      end
-
-      if attributes.key?(:'company_name')
-        self.company_name = attributes[:'company_name']
       end
 
       if attributes.key?(:'home_location')
@@ -293,13 +320,19 @@ module StackOneHRIS
         self.work_location = attributes[:'work_location']
       end
 
-      if attributes.key?(:'company')
-        self.company = attributes[:'company']
+      if attributes.key?(:'company_name')
+        self.company_name = attributes[:'company_name']
       end
 
       if attributes.key?(:'employments')
         if (value = attributes[:'employments']).is_a?(Array)
           self.employments = value
+        end
+      end
+
+      if attributes.key?(:'custom_fields')
+        if (value = attributes[:'custom_fields']).is_a?(Array)
+          self.custom_fields = value
         end
       end
     end
@@ -308,62 +341,12 @@ module StackOneHRIS
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push('invalid value for "id", id cannot be nil.')
-      end
-
-      if @first_name.nil?
-        invalid_properties.push('invalid value for "first_name", first_name cannot be nil.')
-      end
-
-      if @last_name.nil?
-        invalid_properties.push('invalid value for "last_name", last_name cannot be nil.')
-      end
-
-      if @name.nil?
-        invalid_properties.push('invalid value for "name", name cannot be nil.')
-      end
-
-      if @display_name.nil?
-        invalid_properties.push('invalid value for "display_name", display_name cannot be nil.')
-      end
-
-      if @gender.nil?
-        invalid_properties.push('invalid value for "gender", gender cannot be nil.')
-      end
-
-      if @personal_phone_number.nil?
-        invalid_properties.push('invalid value for "personal_phone_number", personal_phone_number cannot be nil.')
-      end
-
-      if @work_email.nil?
-        invalid_properties.push('invalid value for "work_email", work_email cannot be nil.')
-      end
-
-      if @work_phone_number.nil?
-        invalid_properties.push('invalid value for "work_phone_number", work_phone_number cannot be nil.')
-      end
-
-      if @department.nil?
-        invalid_properties.push('invalid value for "department", department cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
-      return false if @first_name.nil?
-      return false if @last_name.nil?
-      return false if @name.nil?
-      return false if @display_name.nil?
-      return false if @gender.nil?
-      return false if @personal_phone_number.nil?
-      return false if @work_email.nil?
-      return false if @work_phone_number.nil?
-      return false if @department.nil?
       true
     end
 
@@ -377,12 +360,6 @@ module StackOneHRIS
           last_name == o.last_name &&
           name == o.name &&
           display_name == o.display_name &&
-          gender == o.gender &&
-          ethnicity == o.ethnicity &&
-          date_of_birth == o.date_of_birth &&
-          birthday == o.birthday &&
-          marital_status == o.marital_status &&
-          avatar == o.avatar &&
           avatar_url == o.avatar_url &&
           personal_email == o.personal_email &&
           personal_phone_number == o.personal_phone_number &&
@@ -391,18 +368,25 @@ module StackOneHRIS
           job_title == o.job_title &&
           department == o.department &&
           manager_id == o.manager_id &&
+          gender == o.gender &&
+          ethnicity == o.ethnicity &&
+          date_of_birth == o.date_of_birth &&
+          birthday == o.birthday &&
+          marital_status == o.marital_status &&
+          avatar == o.avatar &&
           hire_date == o.hire_date &&
           start_date == o.start_date &&
           tenure == o.tenure &&
           work_anniversary == o.work_anniversary &&
           employment_type == o.employment_type &&
+          employment_contract_type == o.employment_contract_type &&
           employment_status == o.employment_status &&
           termination_date == o.termination_date &&
-          company_name == o.company_name &&
           home_location == o.home_location &&
           work_location == o.work_location &&
-          company == o.company &&
-          employments == o.employments
+          company_name == o.company_name &&
+          employments == o.employments &&
+          custom_fields == o.custom_fields
     end
 
     # @see the `==` method
@@ -414,7 +398,7 @@ module StackOneHRIS
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, first_name, last_name, name, display_name, gender, ethnicity, date_of_birth, birthday, marital_status, avatar, avatar_url, personal_email, personal_phone_number, work_email, work_phone_number, job_title, department, manager_id, hire_date, start_date, tenure, work_anniversary, employment_type, employment_status, termination_date, company_name, home_location, work_location, company, employments].hash
+      [id, first_name, last_name, name, display_name, avatar_url, personal_email, personal_phone_number, work_email, work_phone_number, job_title, department, manager_id, gender, ethnicity, date_of_birth, birthday, marital_status, avatar, hire_date, start_date, tenure, work_anniversary, employment_type, employment_contract_type, employment_status, termination_date, home_location, work_location, company_name, employments, custom_fields].hash
     end
 
     # Builds the object from hash
