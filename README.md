@@ -114,7 +114,7 @@ Class | Method | HTTP request | Description
  - [StackOneHRIS::CountryCodeEnum](docs/CountryCodeEnum.md)
  - [StackOneHRIS::CreateEmployeeResult](docs/CreateEmployeeResult.md)
  - [StackOneHRIS::Employee](docs/Employee.md)
-  - [StackOneHRIS::EmployeeApiModel](docs/EmployeeApiModel.md)
+ - [StackOneHRIS::EmployeeApiModel](docs/EmployeeApiModel.md)
  - [StackOneHRIS::EmployeeApiModelAvatar](docs/EmployeeApiModelAvatar.md)
  - [StackOneHRIS::EmployeeApiModelEmploymentStatus](docs/EmployeeApiModelEmploymentStatus.md)
  - [StackOneHRIS::EmployeeApiModelEmploymentType](docs/EmployeeApiModelEmploymentType.md)
