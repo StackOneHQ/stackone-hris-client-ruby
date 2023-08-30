@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stackone_hris_client (1.6.0)
+    stackone_hris_client (1.7.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
 GEM
@@ -70,4 +70,4 @@ DEPENDENCIES
   stackone_hris_client!
 
 BUNDLED WITH
-   2.4.7
+   2.4.13

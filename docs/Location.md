@@ -4,17 +4,17 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  | [optional] |
-| **employee_id** | **String** |  |  |
-| **name** | **String** |  | [optional] |
-| **phone_number** | **String** |  | [optional] |
-| **street_1** | **String** |  | [optional] |
-| **street_2** | **String** |  | [optional] |
-| **city** | **String** |  | [optional] |
-| **state** | **String** |  | [optional] |
-| **zip_code** | **String** |  | [optional] |
-| **country** | [**CountryCodeEnum**](CountryCodeEnum.md) |  | [optional] |
-| **location_type** | [**LocationTypeEnum**](LocationTypeEnum.md) |  | [optional] |
+| **id** | **String** | The unique ID of the location | [optional] |
+| **employee_id** | **String** | The employee ID | [optional] |
+| **name** | **String** | The name of the location | [optional] |
+| **phone_number** | **String** | The phone number of the location | [optional] |
+| **street_1** | **String** | The first line of the address | [optional] |
+| **street_2** | **String** | The second line of the address | [optional] |
+| **city** | **String** | The city where the location is situated | [optional] |
+| **state** | **String** | The state where the location is situated | [optional] |
+| **zip_code** | **String** | The ZIP code/Postal code of the location | [optional] |
+| **country** | [**LocationCountry**](LocationCountry.md) |  | [optional] |
+| **location_type** | [**LocationLocationType**](LocationLocationType.md) |  | [optional] |
 
 ## Example
 
@@ -22,15 +22,15 @@
 require 'stackone_hris_client'
 
 instance = StackOneHRIS::Location.new(
-  id: null,
-  employee_id: null,
-  name: null,
-  phone_number: null,
-  street_1: null,
-  street_2: null,
-  city: null,
-  state: null,
-  zip_code: null,
+  id: 123456,
+  employee_id: 1687-3,
+  name: Woolsthorpe Manor,
+  phone_number: +44 1476 860 364,
+  street_1: Water Lane,
+  street_2: Woolsthorpe by Colsterworth,
+  city: Grantham,
+  state: Lincolnshire,
+  zip_code: NG33 5NR,
   country: null,
   location_type: null
 )

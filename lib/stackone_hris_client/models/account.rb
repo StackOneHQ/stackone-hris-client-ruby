@@ -154,10 +154,6 @@ module StackOneHRIS
         invalid_properties.push('invalid value for "origin_username", origin_username cannot be nil.')
       end
 
-      if @credentials.nil?
-        invalid_properties.push('invalid value for "credentials", credentials cannot be nil.')
-      end
-
       if @created_at.nil?
         invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
       end
@@ -178,7 +174,6 @@ module StackOneHRIS
       return false if @origin_owner_id.nil?
       return false if @origin_owner_name.nil?
       return false if @origin_username.nil?
-      return false if @credentials.nil?
       return false if @created_at.nil?
       return false if @updated_at.nil?
       true

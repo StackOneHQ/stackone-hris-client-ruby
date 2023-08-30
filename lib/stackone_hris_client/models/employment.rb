@@ -15,23 +15,31 @@ require 'time'
 
 module StackOneHRIS
   class Employment
+    # The unique ID of the employment
     attr_accessor :id
 
+    # The employee ID associated with this employment
     attr_accessor :employee_id
 
+    # The job title of the employee
     attr_accessor :job_title
 
+    # The pay rate for the employee
     attr_accessor :pay_rate
 
     attr_accessor :pay_period
 
     attr_accessor :pay_frequency
 
+    # The currency used for pay
     attr_accessor :pay_currency
 
+    # The effective date of the employment contract
     attr_accessor :effective_date
 
     attr_accessor :employment_type
+
+    attr_accessor :employment_contract_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -44,7 +52,8 @@ module StackOneHRIS
         :'pay_frequency' => :'pay_frequency',
         :'pay_currency' => :'pay_currency',
         :'effective_date' => :'effective_date',
-        :'employment_type' => :'employment_type'
+        :'employment_type' => :'employment_type',
+        :'employment_contract_type' => :'employment_contract_type'
       }
     end
 
@@ -60,11 +69,12 @@ module StackOneHRIS
         :'employee_id' => :'String',
         :'job_title' => :'String',
         :'pay_rate' => :'String',
-        :'pay_period' => :'PayPeriodEnum',
-        :'pay_frequency' => :'PayFrequencyEnum',
+        :'pay_period' => :'EmploymentPayPeriod',
+        :'pay_frequency' => :'EmploymentPayFrequency',
         :'pay_currency' => :'String',
         :'effective_date' => :'Time',
-        :'employment_type' => :'EmploymentTypeEnum'
+        :'employment_type' => :'EmploymentEmploymentType',
+        :'employment_contract_type' => :'EmploymentEmploymentContractType'
       }
     end
 
@@ -124,6 +134,10 @@ module StackOneHRIS
       if attributes.key?(:'employment_type')
         self.employment_type = attributes[:'employment_type']
       end
+
+      if attributes.key?(:'employment_contract_type')
+        self.employment_contract_type = attributes[:'employment_contract_type']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -157,7 +171,8 @@ module StackOneHRIS
           pay_frequency == o.pay_frequency &&
           pay_currency == o.pay_currency &&
           effective_date == o.effective_date &&
-          employment_type == o.employment_type
+          employment_type == o.employment_type &&
+          employment_contract_type == o.employment_contract_type
     end
 
     # @see the `==` method
@@ -169,7 +184,7 @@ module StackOneHRIS
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, employee_id, job_title, pay_rate, pay_period, pay_frequency, pay_currency, effective_date, employment_type].hash
+      [id, employee_id, job_title, pay_rate, pay_period, pay_frequency, pay_currency, effective_date, employment_type, employment_contract_type].hash
     end
 
     # Builds the object from hash

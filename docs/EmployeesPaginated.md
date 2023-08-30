@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **next_page** | **String** |  |  |
-| **data** | [**Array&lt;Employee&gt;**](Employee.md) |  |  |
+| **data** | [**Array&lt;EmployeeApiModel&gt;**](EmployeeApiModel.md) |  |  |
 | **raw** | **String** |  | [optional] |
 
 ## Example

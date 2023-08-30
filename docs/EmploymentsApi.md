@@ -26,13 +26,13 @@ StackOneHRIS.configure do |config|
 end
 
 api_instance = StackOneHRIS::EmploymentsApi.new
-id = 'id_example' # String | 
+id = 'id_example' # String |
 x_account_id = 'x_account_id_example' # String | The account identifier
 opts = {
   page: 'page_example', # String | The page number of the results to fetch
   page_size: 'page_size_example', # String | The number of results per page
   raw: true, # Boolean | Indicates that the raw request result is returned
-  fields: 'id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
+  fields: 'id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
   sync_token: 'sync_token_example', # String | The sync token to select the only updated results
   updated_after: 'updated_after_example' # String | Use a string with a date to only select results updated after that given date
 }
@@ -114,7 +114,7 @@ opts = {
   page: 'page_example', # String | The page number of the results to fetch
   page_size: 'page_size_example', # String | The number of results per page
   raw: true, # Boolean | Indicates that the raw request result is returned
-  fields: 'id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
+  fields: 'id,employee_id,job_title,pay_rate,pay_period,pay_frequency,pay_currency,effective_date,employment_type,employment_contract_type', # String | The comma separated list of fields to return in the response (if empty, all fields are returned)
   sync_token: 'sync_token_example', # String | The sync token to select the only updated results
   updated_after: 'updated_after_example' # String | Use a string with a date to only select results updated after that given date
 }

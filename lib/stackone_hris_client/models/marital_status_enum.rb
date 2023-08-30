@@ -111,8 +111,6 @@ module StackOneHRIS
     # @return true if the model is valid
     def valid?
       return false if @value.nil?
-      value_validator = EnumAttributeValidator.new('String', ["single", "married", "common_law", "divorced", "widowed", "domestic_partnership", "separated", "other", "not_disclosed", "unmapped_value"])
-      return false unless value_validator.valid?(@value)
       return false if @source_value.nil?
       true
     end
@@ -120,10 +118,6 @@ module StackOneHRIS
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] value Object to be assigned
     def value=(value)
-      validator = EnumAttributeValidator.new('String', ["single", "married", "common_law", "divorced", "widowed", "domestic_partnership", "separated", "other", "not_disclosed", "unmapped_value"])
-      unless validator.valid?(value)
-        fail ArgumentError, "invalid value for \"value\", must be one of #{validator.allowable_values}."
-      end
       @value = value
     end
 

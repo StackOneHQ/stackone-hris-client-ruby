@@ -1,5 +1,5 @@
 generatorName: ruby
-inputSpec: https://api.stackone.com/documentation-hris-yaml
+inputSpec: https://api2.eu1.stackone.com/documentation-hris-yaml
 additionalProperties:
   moduleName: "StackOneHRIS"
   gemAuthor: "StackOne"
@@ -10,5 +10,5 @@ additionalProperties:
   gemName: "stackone_hris_client"
   gemRequiredRubyVersion: ">= 2.7"
   gemSummary: "StackOne HRIS client gem"
-  gemVersion: "1.6.0"
+  gemVersion: "1.7.0"
   library: "typhoeus"

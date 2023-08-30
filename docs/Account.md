@@ -10,7 +10,7 @@
 | **origin_owner_id** | **String** |  |  |
 | **origin_owner_name** | **String** |  |  |
 | **origin_username** | **String** |  |  |
-| **credentials** | **Object** |  |  |
+| **credentials** | **Object** |  | [optional] |
 | **created_at** | **Time** |  |  |
 | **updated_at** | **Time** |  |  |
 

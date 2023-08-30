@@ -26,7 +26,7 @@ StackOneHRIS.configure do |config|
 end
 
 api_instance = StackOneHRIS::LocationsApi.new
-id = 'id_example' # String | 
+id = 'id_example' # String |
 x_account_id = 'x_account_id_example' # String | The account identifier
 opts = {
   page: 'page_example', # String | The page number of the results to fetch
