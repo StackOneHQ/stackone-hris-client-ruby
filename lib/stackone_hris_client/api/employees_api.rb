@@ -303,6 +303,7 @@ module StackOneHRIS
       query_params[:'sync_token'] = opts[:'sync_token'] if !opts[:'sync_token'].nil?
       query_params[:'updated_after'] = opts[:'updated_after'] if !opts[:'updated_after'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -386,6 +387,7 @@ module StackOneHRIS
       query_params[:'sync_token'] = opts[:'sync_token'] if !opts[:'sync_token'].nil?
       query_params[:'updated_after'] = opts[:'updated_after'] if !opts[:'updated_after'].nil?
       query_params[:'expand'] = opts[:'expand'] if !opts[:'expand'].nil?
+      query_params[:'include'] = opts[:'include'] if !opts[:'include'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
