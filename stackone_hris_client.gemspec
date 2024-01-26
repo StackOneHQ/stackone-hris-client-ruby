@@ -31,7 +31,8 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
 
-  s.files         = `find *`.split("\n").uniq.sort.select { |f| !f.empty? }
+  excluded_files = ["README.md", "CHEATSHEET.md"]
+  s.files = `find *`.split("\n").uniq.sort.select { |f| !f.empty? && !excluded_files.include?(f) }
   s.test_files    = `find spec/*`.split("\n")
   s.executables   = []
   s.require_paths = ["lib"]

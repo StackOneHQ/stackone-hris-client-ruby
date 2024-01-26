@@ -1,5 +1,5 @@
 generatorName: ruby
-inputSpec: https://api2.eu1.stackone.com/documentation-hris-yaml
+inputSpec: https://api2.eu1.stackone.com/oas/hris-legacy.yaml
 additionalProperties:
   moduleName: "StackOneHRIS"
   gemAuthor: "StackOne"
